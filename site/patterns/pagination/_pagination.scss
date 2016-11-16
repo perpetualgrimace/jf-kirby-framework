@@ -1,0 +1,58 @@
+////////////////////////////////
+// legacy
+////////////////////////////////
+
+// pagination
+.pag {
+  display: inline-block;
+  margin-top: $section-padding;
+  margin-bottom: -($section-padding / 2);
+}
+
+.pag-item {
+  @include body-font;
+  display: block; // seems like a great place for inline-block, but spacing gets funky
+  float: left;
+  border: $stroke-width solid $gray;
+  color: $light-1;
+  background: $gray;
+  padding: $nav-secondary-padding;
+  text-transform: uppercase;
+
+  &:not(last-of-type) {
+    margin-right: 2px;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: baseline;
+    max-height: 0.75em;
+    top: 1px;
+  }
+
+  path {
+    fill: $light-1;
+  }
+
+  &:hover, &:focus {
+    color: $gray;
+    background: $white;
+    border-color: $gray;
+
+    path {
+      fill: $gray;
+    }
+  }
+
+  &:active,
+  &.is-active {
+    color: $white;
+    background: $dark-1;
+    border-color: $dark-1;
+
+    path {
+      fill: $white;
+    }
+  }
+
+}

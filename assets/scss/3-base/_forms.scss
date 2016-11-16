@@ -1,0 +1,96 @@
+////////////////////////////////
+// refactor
+////////////////////////////////
+
+// field container
+.field:hover input {
+  color: $secondary-color;
+}
+
+
+// fields and textareas
+input:not([type=submit]):not([type=file]),
+textarea {
+  padding: 0.25em 0.5em 0.5em 0.5em;
+  outline: none;
+  border: 1px solid $light-1;
+}
+
+// textarea
+textarea {
+  min-height: 8rem;
+  max-height: 16rem;
+}
+
+// labels
+label {
+  display: block;
+  padding-bottom: $gutter; // extend clickable area
+  top: 0.75rem;
+  // compensate for padding
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+  color: $brand-color;
+
+  // validation errors
+  &.error {
+    position: absolute;
+    color: $error-color;
+    top: auto;
+    bottom: -0.5rem;
+  }
+}
+
+
+////////////////////////////////
+// legacy
+////////////////////////////////
+
+// text input field left, button right
+.append-button {
+
+  // baseline styles
+  > * {
+    height: 2rem;
+  }
+
+  // left
+  input {
+    box-sizing: border-box;
+    width: 80%;
+  }
+
+  // right
+  button, .button {
+    text-align: center;
+    float: right;
+    box-sizing: border-box;
+    width: 20%;
+    overflow: auto;
+    padding: 0 $gutter;
+    border-radius: 0 $radius $radius 0;
+
+    // make sure svg is centered
+    svg {
+      margin: 0 auto;
+      top: -1px; // fudged
+    }
+  }
+
+
+  // that sweet progressive enhancement
+  @supports (display: -webkit-flex) or (display: -moz-flex) or (display: flex) {
+    display: flex;
+
+    > * {
+      flex: 1;
+      margin-top: 0 !important;
+      width: auto !important;
+    }
+
+    button, input[type=submit] {
+      flex: 0 auto;
+    }
+  }
+
+}

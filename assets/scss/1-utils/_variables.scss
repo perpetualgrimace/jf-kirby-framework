@@ -1,0 +1,91 @@
+////////////////////////////////
+// colors
+////////////////////////////////
+
+// brand palette
+$brand-color:     blue;
+$secondary-color: cyan;
+
+// ui
+$success-color:   green;
+$warning-color:   yellow;
+$error-color:     red;
+
+// whites and blacks
+$black:   #000000;
+$dark-2:  #2A2A2A;
+$dark-1:  #555555;
+$gray:    #7F7F7F;
+$light-2: #AAAAAA;
+$light-1: #D4D4D4;
+$white:   #FFFFFF;
+
+// shadow
+$shadow:          rgba($black, 0.5);
+$shadow-subtle:   rgba($black, 0.25);
+$shadow-dark:     rgba($black, 0.75);
+
+// social media colors
+$facebook-color:  #3b5998;
+$twitter-color:   #00aced;
+$linkedin-color:  #0077B5;
+$google-color:    #DD4B39;
+$instagram-color: #e4405f;
+
+
+////////////////////////////////
+// font sizes
+////////////////////////////////
+
+$giga:    5.0rem; // 100px
+$alpha:   3.4rem; // 68px
+$beta:    2.2rem; // 44px
+$gamma:   1.5rem; // 30px
+$delta:   1.0rem; // 20px
+$epsilon: 0.85rem; // use sparingly!
+$milli:   0.7rem; // 14px
+
+
+////////////////////////////////
+// breakpoints
+////////////////////////////////
+
+// t-shirt sizing ftw
+$xxs:  20em;
+$xs:   30em;
+$s:    40em;
+$m:    56em;
+$l:    64em;
+$xl:   80em;
+$xxl:  90em;
+$xxxl: 100em;
+
+
+////////////////////////////////
+// miscellaneous measurements
+////////////////////////////////
+
+// border
+$border-width:       2px;
+$border-width-thick: 0.25em;
+
+// border radius
+$radius: 2px;
+
+// used by _jf-grid.scss
+$gutter: 1rem;
+$max-container-width: 60rem;
+
+// used by _nav.scss
+$nav-height: 2.45rem; // 49px
+
+// used by _cards.scss
+$thumb-width: 8rem;
+$thumb-height: 6rem;
+
+
+////////////////////////////////
+// motion
+////////////////////////////////
+
+$timing: 0.3s ease;

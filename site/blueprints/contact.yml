@@ -1,0 +1,79 @@
+title: Contact
+pages: false
+files: false
+icon: envelope-o
+deletable: false
+options:
+  status: false
+  template: false
+  url: false
+
+fields:
+  headline:
+    label: Headline
+    type: text
+    help: This will overwrite the page title at the top of the page
+  text:
+    label: Text
+    type:  markdown
+    header1: h3
+    header2: h4
+
+  line1:
+    type: line
+
+  email:
+    label: Email address
+    type: text
+    width: 1/4
+    required: true
+    help: Submissions from the form will be sent to this address.
+  facebook:
+    label: Facebook username
+    type: text
+    width: 1/4
+  twitter:
+    label: Twitter username
+    type: text
+    width: 1/4
+  linkedin:
+    label: LinkedIn username
+    type: text
+    width: 1/4
+
+  line2:
+    type: line
+
+  address1:
+    label: Address, line 1
+    type: text
+    width: 1/3
+  address2:
+    label: Address, line 2
+    type: text
+    width: 1/3
+  gMapUrl:
+    label: Google maps URL
+    type: text
+    width: 1/3
+
+  telephone:
+    label: Telephone number
+    type: text
+    width: 1/2
+  fax:
+    label: Fax number
+    type: text
+    width: 1/2
+
+  line3:
+    type: line
+
+  success:
+    label: Success message
+    type: markdown
+    width: 1/2
+  fail:
+    label: Fail message
+    type: markdown
+    width: 1/2

@@ -1,0 +1,60 @@
+////////////////////////////////
+// footer base
+////////////////////////////////
+
+// footer links
+.footer-link {
+  @include font-smoothing;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  font-size: $milli;
+
+  // interactions
+  &.is-active-pg {
+    opacity: 0.625;
+
+    &:hover, &:active, &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+
+////////////////////////////////
+// footer nav
+////////////////////////////////
+
+// switch to inline list style when the space is available
+.footer-nav-item {
+  @media (min-width: $m) {
+    display: inline-block;
+  }
+}
+
+
+////////////////////////////////
+// contact info
+////////////////////////////////
+
+
+
+////////////////////////////////
+// copyright
+////////////////////////////////
+
+
+////////////////////////////////
+// smaller screens
+////////////////////////////////
+
+@media (max-width: $m - 0.001) {
+
+  .footer-nav-link {
+    display: block;
+    padding-left: 0;
+  }
+
+  .footer-nav-item + .footer-nav-item {
+    border-top: 1px solid $gray;
+  }
+}

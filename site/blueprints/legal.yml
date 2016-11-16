@@ -1,0 +1,12 @@
+title: Legal
+pages: false
+files: true
+icon: gavel
+
+fields:
+  title:
+    label: Title
+    type:  text
+  text:
+    label: Text
+    type:  markdown

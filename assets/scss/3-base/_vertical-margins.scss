@@ -1,0 +1,22 @@
+main * + * {
+  margin-top: 0.625em;
+}
+
+.display + .button {
+  margin-top: 1.5em;
+}
+
+
+// add anchor link offset to any element with an id
+main [id]:before {
+  @include pseudo;
+  visibility: hidden;
+  margin-top: -($gutter * 2);
+  height: $gutter * 2;
+
+  // account for fixed nav
+  @media (min-width: $l) and (min-height: $xxs) {
+    margin-top: -($gutter * 5);
+    height: $gutter * 5;
+  }
+}

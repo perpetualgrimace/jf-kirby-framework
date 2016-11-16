@@ -1,0 +1,15 @@
+title: Search
+pages: false
+files: false
+deletable: false
+icon: search
+
+fields:
+  title:
+    label: Title
+  text:
+    label: Error text
+    help: This is shown when no results are found
+    type: markdown
+    header1: h3
+    header2: h4

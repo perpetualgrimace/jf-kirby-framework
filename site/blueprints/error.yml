@@ -1,0 +1,15 @@
+title: Error
+pages: false
+files: false
+icon: exclamation-triangle
+deletable: false
+
+fields:
+  headline:
+    label: Headline
+    type:  text
+    help:  This will overwrite the page title at the top of the page
+  text:
+    label: Error message
+    type:  markdown
+    help:  This message is shown when a user encounters a bad link

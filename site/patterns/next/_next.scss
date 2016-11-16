@@ -1,0 +1,44 @@
+////////////////////////////////
+// big ol' next button
+////////////////////////////////
+
+// container
+.next {
+  background: $light-1;
+
+  &:hover, &:focus, &:active {
+    background: $secondary-color;
+  }
+}
+
+// big ol' link
+.next-link {
+  display: block;
+  z-index: 1;
+
+  // absolutely position series label if it is a child of .next-link
+  .series-label {
+    position: absolute;
+    top: -2.5rem;
+  }
+}
+.next-img {
+  @include inflate;
+  background-size: cover;
+  background-position: center;
+}
+
+// interactions
+.next-link {
+  &:hover, &:focus, &:active {
+    color: $white;
+
+    + .next-img {
+      opacity: 0.33;
+    }
+  }
+  // active
+  &:active + .next-img {
+    transform: scale(0.95);
+  }
+}

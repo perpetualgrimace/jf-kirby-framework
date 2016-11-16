@@ -1,0 +1,27 @@
+title: Blog list page
+pages: true
+  template:
+    - blog-article
+    - blog-video
+  limit: 20
+files: false
+icon: book
+options:
+  status: false
+  template: false
+  url: false
+
+fields:
+  headline:
+    label: Blog title
+    type: text
+    help: IMPORTANT — Change the blog title here and it will be used by all templates
+  subhead:
+    label: Blog subtitle
+    type: text
+  cta:
+    label: Site-wide subscription call to action
+    type: markdown
+    tools:
+      - header1
+      - link

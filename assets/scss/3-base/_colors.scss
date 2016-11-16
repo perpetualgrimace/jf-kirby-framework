@@ -1,0 +1,83 @@
+////////////////////////////////
+// base theme (light)
+////////////////////////////////
+
+// main style
+main {
+  background: $white;
+  color: $black;
+
+  // links
+  a {
+    color: $brand-color;
+
+    &:hover,
+    &:focus {
+      color: $secondary-color;
+    }
+
+    &:active {
+      color: $secondary-color;
+    }
+  }
+}
+
+
+////////////////////////////////
+// dark theme
+////////////////////////////////
+
+// remember to move this into its own file if it gets unruly
+.dark-theme {
+  background: $black;
+  color: $white;
+
+  a {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: $secondary-color;
+    }
+  }
+}
+
+
+////////////////////////////////
+// enhancements
+////////////////////////////////
+
+// selection
+::selection {
+  color: $white;
+  background: rgba($brand-color, 0.9);
+}
+img::selection {
+  background: rgba($brand-color, 0.5);
+}
+
+// focus style
+:focus {
+  outline: none;
+  background: rgba($light-1, 0.35);
+}
+
+main:focus {
+  background: $white;
+}
+
+.mfp-wrap:focus {
+  background: none;
+}
+
+
+////////////////////////////////
+// dev
+////////////////////////////////
+
+// browsersync notification
+#__bs_notify__ {
+  @include horizontal-center;
+  opacity: 0.4;
+  pointer-events: none;
+}

@@ -1,0 +1,11 @@
+title: Feed
+pages: false
+files: false
+hide: true
+deletable: false
+preview: false
+icon: rss-square
+
+fields:
+  title:
+    label: Page title

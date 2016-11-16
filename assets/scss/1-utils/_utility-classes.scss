@@ -1,0 +1,197 @@
+////////////////////////////////
+// typography
+////////////////////////////////
+
+// alignment classes -- the same on all screen sizes
+.u-left {
+  text-align: left;
+}
+.u-right {
+  text-align: right;
+}
+.u-center {
+  text-align: center;
+}
+
+// switch alignment around 630px width (mobile first)
+.u-center-left {
+  text-align: center;
+  @media (min-width: $m) { text-align: left; }
+}
+.u-center-right {
+  text-align: center;
+  @media (min-width: $m) { text-align: right; }
+}
+.u-left-center {
+  text-align: left;
+  @media (min-width: $m) { text-align: center; }
+}
+.u-left-right {
+  text-align: left;
+  @media (min-width: $m) { text-align: right; }
+}
+.u-right-left {
+  text-align: right;
+  @media (min-width: $m) { text-align: left; }
+}
+.u-right-center {
+  text-align: right;
+  @media (min-width: $m) { text-align: center; }
+}
+
+// underline links, or not
+.u-underline {
+  text-decoration: underline !important;
+}
+.u-no-underline {
+  text-decoration: none !important;
+}
+
+// make a link look like body text
+.u-unlink-body {
+  @include body-font;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+// screen reader text
+.u-screenreader {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+
+////////////////////////////////
+// layout
+////////////////////////////////
+
+.u-fullwidth {
+  @include fullwidth; // expand horizontally to fill up viewport
+}
+
+// vertically center child elements via flexbox
+.u-vertical-center {
+  @media(min-width: $m) {
+    @include flex-vertical-center;
+  }
+}
+
+// stretch to fill container with the power of flexbox
+.u-full-height {
+  @media(min-width: $m) {
+    display: flex;
+  }
+}
+
+
+////////////////////////////////
+// margins
+////////////////////////////////
+
+// margin-top
+.u-margin-top-sm {
+  margin-top: $gutter / 2 !important;
+}
+.u-margin-top,
+.u-margin-top-m {
+  margin-top: $gutter !important;
+}
+.u-margin-top-lg {
+  margin-top: $gutter * 2 !important;
+}
+.u-margin-top-xl {
+  margin-top: $gutter * 3 !important;
+}
+.u-margin-top-off {
+  margin-top: 0 !important;
+}
+.u-margin-top-off-children * + * {
+  margin-top: 0; // no need for !important, just overriding the * + * selector
+}
+
+// margin-bottom
+.u-margin-bottom-sm {
+  margin-bottom: $gutter / 2 !important;
+}
+.u-margin-bottom,
+.u-margin-bottom-m {
+  margin-bottom: $gutter !important;
+}
+.u-margin-bottom-lg {
+  margin-bottom: $gutter * 2 !important;
+}
+.u-margin-bottom-xl {
+  margin-bottom: $gutter * 3 !important;
+}
+.u-margin-bottom-off {
+  margin-bottom: 0 !important;
+}
+
+// horizontally center block elements
+.u-margins-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+////////////////////////////////
+// padding
+////////////////////////////////
+
+// padding-top
+.u-padding-top-sm {
+  padding-top: $gutter / 2 !important;
+}
+.u-padding-top,
+.u-padding-top-m {
+  padding-top: $gutter !important;
+}
+.u-padding-top-lg {
+  padding-top: $gutter * 2 !important;
+}
+.u-padding-top-xl {
+  padding-top: $gutter * 3 !important;
+}
+.u-padding-top-off {
+  padding-top: 0 !important;
+}
+
+// padding-bottom
+.u-padding-bottom-sm {
+  padding-bottom: $gutter / 2 !important;
+}
+.u-padding-bottom,
+.u-padding-bottom-m {
+  padding-bottom: $gutter !important;
+}
+.u-padding-bottom-lg {
+  padding-bottom: $gutter * 2 !important;
+}
+.u-padding-bottom-xl {
+  padding-bottom: $gutter * 3 !important;
+}
+.u-padding-bottom-off {
+  padding-bottom: 0 !important;
+}
+
+
+////////////////////////////////
+// hide content
+////////////////////////////////
+
+// hide on small screens
+.u-hide-below-m {
+  @media (max-width: $m - 0.001) {
+    display: none !important;
+  }
+}
+
+// hide on large screens
+.u-hide-above-m {
+  @media (min-width: $m) {
+    display: none !important;
+  }
+}

@@ -1,0 +1,11 @@
+title: Site map
+pages: false
+files: false
+hide: true
+deletable: false
+preview: false
+icon: sitemap
+
+fields:
+  title:
+    label: Page title

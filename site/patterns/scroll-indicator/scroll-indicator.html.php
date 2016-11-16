@@ -1,0 +1,3 @@
+<div class="scroll-indicator-container u-center">
+  <a class="scroll-indicator-link u-no-underline alpha" href="#<?= $target ?>" tabindex="-1">☟</a>
+</div>

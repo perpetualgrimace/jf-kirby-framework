@@ -1,0 +1,119 @@
+title: Home page
+pages: false
+icon: home
+deletable: false
+options:
+  status: false
+  template: false
+  url: false
+
+fields:
+  headline:
+    label: Headline
+    type: text
+    help: This will overwrite the title text at the top of the page
+  intro:
+    label: Intro block
+    type: markdown
+
+  line1:
+    type: line
+
+  choice_reviews_img:
+    label: Choice Reviews image
+    type: image
+    width: 1/3
+  choice_reviews:
+    label: Choice Reviews text
+    type: markdown
+    width: 2/3
+  choice_reviews_col1_num:
+    label: Column 1 number
+    type: text
+    width: 1/3
+  choice_reviews_col2_num:
+    label: Column 2 number
+    type: text
+    width: 1/3
+  choice_reviews_col3_num:
+    label: Column 3 number
+    type: text
+    width: 1/3
+  choice_reviews_col1_label:
+    label: Column 1 label
+    type: text
+    width: 1/3
+  choice_reviews_col2_label:
+    label: Column 2 label
+    type: text
+    width: 1/3
+  choice_reviews_col3_label:
+    label: Column 3 label
+    type: text
+    width: 1/3
+
+  line2:
+    type: line
+
+  librarianship:
+    label: Librarianship block
+    type: markdown
+
+  line3:
+    type: line
+
+  choice_magazine_img:
+    label: Choice magazine image
+    type: image
+    width: 1/3
+  choice_magazine:
+    label: Choice magazine text
+    type: markdown
+    width: 2/3
+  choice_magazine_col1_img:
+    label: Column 1 image
+    type: image
+    width: 1/3
+  choice_magazine_col2_img:
+    label: Column 2 image
+    type: image
+    width: 1/3
+  choice_magazine_col3_img:
+    label: Column 3 image
+    type: image
+    width: 1/3
+  choice_magazine_col1:
+    label: Column 1 caption
+    type: markdown
+    width: 1/3
+  choice_magazine_col2:
+    label: Column 2 caption
+    type: markdown
+    width: 1/3
+    help: this column is currently disabled in the template
+  choice_magazine_col3:
+    label: Column 3 caption
+    type: markdown
+    width: 1/3
+
+  line4:
+    type: line
+
+  rcl_img:
+    label: RCL image
+    type: image
+    width: 1/3
+  rcl:
+    label: RCL text
+    type: markdown
+    width: 2/3
+
+  line5:
+    type: line
+
+  cta:
+    label: Call to action
+    type: markdown
+    tools:
+      - header1
+      - link

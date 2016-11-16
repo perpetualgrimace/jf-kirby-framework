@@ -1,0 +1,13 @@
+////////////////////////////////
+// scroll indicator
+////////////////////////////////
+
+.scroll-indicator-container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  top: -6rem;
+}
+.scroll-indicator-link {
+  color: $white;
+}

@@ -1,0 +1,371 @@
+////////////////////////////////
+// container
+////////////////////////////////
+
+// nav container
+.nav-container {
+  top: 0;
+  width: 100%;
+  z-index: 11;
+  background: $white;
+
+  @media (min-width: $l) and (min-height: $xxs) {
+    @include box-shadow($shadow-subtle);
+    position: fixed;
+  }
+}
+
+// nav element
+.nav-main {
+  height: $nav-height;
+
+  // base style for nav elements
+  * {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: $milli;
+    color: $black;
+  }
+}
+
+
+////////////////////////////////
+// logo
+////////////////////////////////
+
+// logo
+.nav-logo {
+  float: left;
+  height: 100%;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  left: -($gutter);
+  // NOTE: remove this line when replacing logo text with an image
+  line-height: $nav-height; // vertically center
+
+  // svg positioning
+  svg {
+    height: 100%;
+    width: 7rem;
+    top: 0;
+  }
+}
+
+// not active page
+.nav-logo:not(.is-active-pg) {
+  svg path {
+    // fill: $black;
+  }
+
+  &:hover, &:focus, &:active {
+    svg path {
+      // fill: $brand-color;
+    }
+  }
+}
+
+////////////////////////////////
+// main nav list
+////////////////////////////////
+
+// nav list
+.nav-list {
+  float: right;
+  background: $white;
+
+  // small screens
+  @media (max-width: $m - 0.001) {
+    @include dropdown-hidden;
+    width: 100%; // fallback
+    width: 100vw;
+    top: 0;
+    left: -$gutter;
+    z-index: -10;
+
+    // prevent page jump
+    &:before {
+      @include pseudo;
+      width: 100%;
+      height: $nav-height;
+    }
+  }
+}
+
+// nav items
+.nav-item {
+  float: left;
+
+  // large screen style
+  @media (min-width: $m) {
+    width: auto;
+    display: block;
+  }
+}
+
+// nav links
+.nav-link {
+  display: block;
+  line-height: $nav-height; // vertically center
+
+  @media (min-width: $m) {
+    padding: 0 0.5rem;
+
+    &:hover, &:focus, &:active {
+      color: $brand-color;
+    }
+  }
+
+  // active page
+  &.is-active-pg {
+    background: $light-1;
+    color: $black;
+  }
+}
+
+
+////////////////////////////////
+// main nav on small screens
+////////////////////////////////
+
+// toggled list style
+@media (max-width: $m - 0.001) {
+  .nav-item {
+    width: 20%;
+    text-align: center;
+  }
+  .nav-link {
+
+    &:hover, &:active, &:focus {
+      background: $brand-color;
+      color: $white;
+    }
+  }
+}
+
+// tiny screens
+@media (max-width: $s - 0.001) {
+  .nav-item {
+    width: 33.3333333333333%;
+  }
+}
+
+// super small screens
+@media (max-width: $xxs - 0.001) {
+  .nav-item {
+    width: 100%;
+  }
+}
+
+
+////////////////////////////////
+// dropdown menu
+////////////////////////////////
+
+// dropdown menu
+.dropdown {
+  @include dropdown-hidden;
+  display: none; // hide on smaller screens
+
+  // show on bigger screens
+  @media (min-width: $m) {
+    display: inline-block;
+    position: absolute;
+    top: $nav-height;
+    left: -1rem;
+  }
+}
+
+// states
+@media (min-width: $m) {
+  // reveal dropdown menu when hovering/focusing parent
+  .dropdown:hover,
+  .nav-item:hover .dropdown,
+  // If the item has a dropdown and the link is focused, target the adjacent dropdown menu
+  .has-dropdown .nav-link:focus + .dropdown,
+  .nav-link:focus + .dropdown,
+  // .is-focused class, added to .dropdown on focus via js
+  .dropdown.is-focused {
+    @include dropdown-visible;
+  }
+}
+
+// dropdown link style
+.dropdown-link {
+  display: block; // respect padding
+  // background: $black;
+  // color: $white;
+  line-height: 2rem;
+  padding: 0.125rem 1.5rem 0.25rem;
+
+  &:hover, &:active, &:focus {
+    background: $brand-color;
+  }
+}
+
+
+////////////////////////////////
+// nav menu toggle
+////////////////////////////////
+
+// expanded menu via js
+.nav-list.is-expanded {
+  @include dropdown-visible;
+}
+
+// menu toggle
+.nav-toggle {
+  position: absolute;
+  float: right;
+  height: $nav-height;
+  padding: ($gutter * 0.45) $gutter 0 $gutter; // somewhat fudged
+  right: -$gutter;
+
+  &-text {
+    font-size: $delta;
+  }
+
+  // active state theming
+  &.is-active {
+    background: $black;
+
+    .hamburger-bun {
+      background: $white;
+    }
+    .nav-toggle-text {
+      color: $white;
+    }
+
+  }
+
+  // hide on large screens
+  @media (min-width: $m) {
+    display: none;
+  }
+}
+
+// humburger icon
+.hamburger {
+  display: inline-block;
+  margin-right: 0.25rem;
+
+  // initial state
+  &-bun {
+    display: block;
+    width: ($border-width * 9);
+    height: $border-width;
+    border-radius: 1px;
+    background: $black;
+
+    & + & {
+      margin-top: ($border-width * 1.5);
+    }
+  }
+
+  // active state
+  &.is-active {
+    transform: translateX(5px);
+
+    .hamburger-bun-top {
+      transform: rotateZ(45deg) translateY(#{$border-width * 3.5});
+    }
+    .hamburger-bun-patty {
+      opacity: 0;
+    }
+    .hamburger-bun-bottom {
+      transform: rotateZ(-45deg) translateY(-#{$border-width * 3.5});
+    }
+  }
+}
+
+
+////////////////////////////////
+// social icons
+////////////////////////////////
+/*
+// social icons
+.nav-social-list {
+  display: none;
+  height: $nav-height;
+  width: 7rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  // show on big-enough screens
+  @media (min-width: $xxs) {
+    display: block;
+  }
+
+  // send to the right instead of centering on bigger screens
+  @media (min-width: $m) {
+    float: right;
+    width: auto;
+    margin-left: $gutter;
+    margin-right: -($gutter * 0.5);
+  }
+}
+
+// social item
+.nav-social-item {
+  display: inline-block;
+  height: $nav-height;
+  overflow: hidden;
+}
+
+// social links
+.nav-social-link {
+  display: block;
+  padding: ($gutter * 0.7) ($gutter * 0.5); // fudged
+  max-height: $nav-height;
+
+  // scale icons with baseline
+  svg {
+    height: 1rem;
+
+    // default color
+    path {
+      fill: $black;
+    }
+  }
+}
+
+// :hover colors
+.nav-social-link-twitter {
+  &:hover path, &:active path, &:focus path {
+    fill: $twitter-color;
+  }
+}
+.nav-social-link-facebook {
+  &:hover path, &:active path, &:focus path {
+    fill: $facebook-color;
+  }
+}
+.nav-social-link-linkedin {
+  &:hover path, &:active path, &:focus path {
+    fill: $linkedin-color;
+  }
+}
+.nav-social-link-instagram {
+  &:hover path, &:active path, &:focus path {
+    fill: $instagram-color;
+  }
+}
+*/
+
+////////////////////////////////
+// skip link
+////////////////////////////////
+
+// skip link
+a.skip {
+  top: $nav-height + ($gutter / 2); // position under nav bar
+  z-index: 8;
+  transform: translateX(-100%);
+}
+.skip:focus {
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: visible;
+  transform: none;
+}

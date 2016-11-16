@@ -1,0 +1,75 @@
+////////////////////////////////
+// standard card
+////////////////////////////////
+
+
+// thumbnail and caption alignment
+.card-thumb,
+.card-caption {
+  display: inline-block;
+  vertical-align: top;
+
+  @media (min-width: $s) {
+    vertical-align: middle;
+  }
+}
+
+
+// thumbnail image size
+.card-thumb {
+  background: $light-1;
+  width: $thumb-width;
+  height: $thumb-height;
+
+  // extend clickable zone
+  &:after {
+    @include pseudo;
+    position: absolute;
+    width: $gutter;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    z-index: 1;
+  }
+
+  // hovering image triggers adjacent title
+  &:hover + .card-caption > .card-title {
+    color: $secondary-color;
+  }
+}
+
+// image size
+.card-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
+// caption positioning
+.card-caption {
+  margin-top: 0;
+  padding-left: $gutter;
+  width: calc(100% - #{($thumb-width / 2)}); // don't be wrapping
+
+  // don't be wrapping when the thumbnail scales up
+  @media (min-width: $s) {
+    width: calc(100% - #{$thumb-width + ( $gutter * 2 )});
+  }
+}
+
+// stop .card-title from inheriting parent line-height by changing it to a block element ¯\_(ツ)_/¯
+.card-title {
+  display: block;
+}
+
+
+// small screen treatment
+@media (max-width: $s - 0.001) {
+  .card-title {
+    font-size: $delta * 1.25; // when 6 font sizes aren't enough :/
+  }
+  .card-meta {
+    display: none;
+  }
+}

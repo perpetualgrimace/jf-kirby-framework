@@ -1,0 +1,34 @@
+title: Site
+deletable: false
+pages:
+  template:
+    - default
+    - legal
+
+fields:
+  title:
+    label: Title
+    type:  text
+  description:
+    label: Site description
+    validate:
+      maxWords: 25
+    type: markdown
+    toolbar: hide
+    width: 1/2
+  keywords:
+    label: Keywords
+    type:  tags
+    width: 1/2
+  dropdownable:
+    label: nav items with dropdown menus
+    type: markdown
+    toolbar: hide
+    width: 1/2
+  lv3dropdown:
+    label: additional nav options
+    type: checkbox
+    text: display lv-3 pages in dropdown menu?
+    width: 1/2
+  copyright:
+    label: Copyright

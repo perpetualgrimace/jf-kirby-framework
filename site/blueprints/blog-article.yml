@@ -1,0 +1,70 @@
+title: Article
+pages: false
+files: true
+icon: book
+
+fields:
+  title:
+    label: Article title
+    type: text
+  subtitle:
+    label: Subtitle
+    type: text
+    width: 3/4
+  date:
+    label: Publication date
+    type: date
+    width: 1/4
+  description:
+    label: Description
+    type: markdown
+    toolbar: hide
+    help: A short summary of the article's topic. Will be used for social media sharing and on the home page. 25 word limit.
+    validate:
+      maxWords: 25
+
+  line1:
+    type: line
+
+  thumb:
+    label: Thumbanil image
+    type: image
+    help: 'Recommended size: width × height.'
+    width: 1/2
+  hero:
+    label: Hero image
+    type: image
+    help: 'Recommended size: width × height. Will be used at the top of the page.'
+    width: 1/2
+  text:
+    label: Article content
+    type:  markdown
+    header1: h3
+    header2: h4
+
+  line2:
+    type: line
+
+  author:
+    label: Author name
+    type: text
+    width: 1/2
+  authorImg:
+    label: Author image
+    type: image
+    width: 1/2
+    help: 'Recommended size: width × height.'
+  byline:
+    label: About the author
+    type: markdown
+    tools:
+      - italic
+      - link
+
+  references:
+    label: References
+    type: markdown
+    tools:
+      - italic
+      - link
+      - unorderedList

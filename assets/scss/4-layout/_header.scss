@@ -1,0 +1,58 @@
+////////////////////////////////
+// global
+////////////////////////////////
+
+// main container
+.header {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 40vh;
+  min-height: 8rem;
+  min-height: calc(5rem + 20vw);
+
+  // offset fixed nav
+  @media (min-width: $l) and (min-height: $xxs) {
+    margin-top: $nav-height;
+  }
+}
+
+// row
+.header > .g-container {
+  z-index: 1;
+}
+
+// hero image container
+.hero {
+  @include inflate;
+  background-size: cover;
+  background-position: center;
+  background-color: $light-1;
+}
+
+
+////////////////////////////////
+// home header
+////////////////////////////////
+
+// fallback for non-video mobile devices
+.home-hero-mobile {
+  background: url("../../content/home/video-fallback.jpg");
+  background-size: cover;
+  background-position: 0;
+}
+
+// fake cover
+.home-video {
+  @include absolute-center;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.home-headline {
+  display: inline;
+}

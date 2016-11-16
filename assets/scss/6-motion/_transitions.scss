@@ -1,0 +1,46 @@
+// interactive stuff
+a, label, input, textarea, button,
+[class*=button], button:after {
+  /* autoprefixer: off */
+  transition:
+    color $timing,
+    opacity $timing,
+    background $timing,
+    border $timing,
+    transform $timing,
+    box-shadow $timing;
+}
+
+// images
+img, [class*='img'] {
+  /* autoprefixer: off */
+  transition:
+    opacity $timing,
+    transform $timing,
+    box-shadow $timing;
+}
+
+// svgs
+svg * {
+  /* autoprefixer: off */
+  transition:
+    fill $timing,
+    stroke $timing,
+    opacity $timing;
+}
+
+// nav list smooth expand / collapse
+.nav-list,
+.dropdown {
+  /* autoprefixer: off */
+  transition:
+    opacity $timing,
+    transform $timing;
+}
+
+// hamburger
+.hamburger,
+.hamburger-bun {
+  /* autoprefixer: off */
+  transition: transform $timing;
+}

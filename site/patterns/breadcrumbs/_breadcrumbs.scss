@@ -1,0 +1,21 @@
+////////////////////////////////
+// breadcrumbs
+////////////////////////////////
+
+.crumb {
+  display: inline-block;
+}
+
+.crumb + .crumb {
+  margin-left: 0.2em;
+}
+
+////////////////////////////////
+// patterns notification
+////////////////////////////////
+// only patterns pages have no body class
+body:not([class]) .breadcrumbs:before {
+  display: block;
+  padding: $gutter;
+  content: 'This pattern can be used in templates, but the preview for this pattern is unavailable.';
+}

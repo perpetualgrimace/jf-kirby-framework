@@ -1,0 +1,28 @@
+// sweet sticky footer via flexbox
+// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+
+@supports (flex-wrap: wrap) {
+  // Use body[class] to apply this to the real site, and not the Kirby pattern preview.
+  // (The real site will always have at least one class applied to the body,
+  // while the Kirby pattern preview will not)
+  body[class] {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+  }
+}
+
+// add padding to sections
+.section {
+  @include clearfix;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  // remove redundant padding
+  & + & {
+    padding-top: 0;
+  }
+}

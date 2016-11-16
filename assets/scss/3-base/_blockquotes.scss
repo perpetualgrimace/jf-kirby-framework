@@ -1,0 +1,62 @@
+////////////////////////////////
+// blockquotes
+////////////////////////////////
+
+blockquote {
+  border-left: none;
+  quotes: none;
+
+  // quotation mark
+  &:before {
+    position: absolute;
+    content: '\201F';
+    font-family: georgia, serif;
+    font-size: $giga * 1.25;
+    top: 2.85rem;
+    left: -2.625rem;
+    line-height: 0.01rem;
+    color: $secondary-color;
+  }
+
+  // the quote
+  * {
+    @include display-italic-font;
+    line-height: 1;
+    font-size: $gamma;
+  }
+
+  // the attribution
+  * + *:last-child {
+    @include body-font;
+    margin-top: 1em;
+    display: block;
+    font-size: $milli;
+    text-align: right;
+
+    &:before {
+      content: '—';
+    }
+  }
+}
+
+
+// indent on smaller screens
+@media (max-width: $xl - 0.001) {
+  blockquote {
+    padding-left: $gutter * 3;
+
+    &:before {
+      left: -0.25rem;
+    }
+  }
+}
+
+@media (min-width: $l) {
+  aside blockquote {
+    padding-left: $gutter * 1.5;
+
+    &:before {
+      left: -1.3rem;
+    }
+  }
+}

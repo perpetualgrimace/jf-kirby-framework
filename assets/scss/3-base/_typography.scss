@@ -1,0 +1,124 @@
+////////////////////////////////
+// refactor
+////////////////////////////////
+
+// default type
+html {
+  @include body-font;
+}
+
+// bold type
+strong, b, a,
+button, input[type='button'], label,
+dt {
+  @include body-bold-font;
+}
+
+// italic type
+em, i {
+  @include body-italic-font;
+}
+
+// heading type
+.heading,
+h1, h2, h3, h4, h5, h6 {
+  @include display-font;
+  // text-transform: uppercase;
+  // letter-spacing: 0.25em; // fallback
+  // letter-spacing: calc(0.2em + 2px); // variable letter-spacing, see http://codepen.io/jamesferrell/pen/EgZrVJ
+}
+
+// display type
+// note: in main, must be added explicitely via class, so it overwrites heading defaults
+.display,
+svg text {
+  @include display-italic-font;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+
+// type size defaults
+h1 {
+  font-size: ($beta + $alpha) / 2;
+
+  @media (min-width: $m) {
+    font-size: $alpha;
+  }
+}
+h2           { font-size: $beta; }
+h3           { font-size: $gamma;}
+h4, p, li    { font-size: $delta;}
+h5, h6,
+small, label { font-size: $milli;}
+
+
+// type size overrides
+.giga {
+  font-size: $beta;
+
+  @media (min-width: $xxs) {
+    font-size: 8vw;
+  }
+  @media (min-width: $xl) {
+    font-size: $giga;
+  }
+}
+.alpha {
+  font-size: $beta;
+
+  @media (min-width: $m) {
+    font-size: $alpha;
+  }
+}
+.beta  {
+  font-size: $beta;
+}
+.gamma,
+.gamma > p,
+.gamma > li {
+  font-size: $gamma;
+}
+.delta,
+.delta > p,
+.delta > li {
+  font-size: $delta;
+}
+.milli,
+.milli > p,
+.milli > li  {
+  font-size: $milli;
+}
+
+
+// default line-height
+main * {
+  line-height: 1.5;
+}
+
+// heading line-height
+h1, h2, h3, h4, h5, h6,
+.heading, .display {
+  line-height: 1;
+}
+
+
+////////////////////////////////
+// legacy
+////////////////////////////////
+
+// Line breaks
+br {
+  display: none;
+}
+
+footer br,
+table br,
+blockquote br,
+.vertical-list br {
+  display: block; // always be breaking
+}
+
+br + br {
+  display: none; // in case consecutive <br> tags sneak onto a page, hide all but the first
+}

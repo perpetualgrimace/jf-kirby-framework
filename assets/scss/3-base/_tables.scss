@@ -1,0 +1,33 @@
+// table
+table {
+  margin: 1.5rem auto;
+  width: 100%;
+
+  // left align the 1st column...
+  tr > *:first-child {
+    text-align: left;
+  }
+
+  // ... and center the rest.
+  tr > *:not(:first-child) {
+    text-align: center;
+  }
+
+  // format cells
+  th, td {
+    max-width: 50%;
+    padding: 0.25em 1em;
+    border: 1px solid $light-1;
+  }
+}
+
+// zebra striped
+.zebra {
+
+  tr:nth-of-type(odd) {
+    background: $light-1;
+  }
+  th, td {
+    border: 1px solid transparent;
+  }
+}

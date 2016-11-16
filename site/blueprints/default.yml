@@ -1,0 +1,26 @@
+title: Default page template
+pages: false
+files: true
+icon: asterisk
+
+fields:
+  title:
+    label: Title
+    type:  text
+  headline:
+    label: Headline
+    type: text
+    help: This will overwrite the page title at the top of the page
+  text:
+    label: Text
+    type:  markdown
+    header1: h3
+    header2: h4
+  cta:
+    label: Call to action
+    type:  markdown
+    header1: h3
+    header2: h4
+    tools:
+      - header1
+      - link

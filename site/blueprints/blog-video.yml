@@ -1,0 +1,46 @@
+title: Video
+pages: false
+files: true
+icon: video-camera
+
+fields:
+  title:
+    label: Webinar title
+    type: text
+
+  date:
+    label: Air date
+    type: date
+    width: 1/2
+  time:
+    label: Scheduled time
+    type: text
+    width: 1/2
+    default: 2:00pm ET
+
+  line1:
+    type: line
+
+  youtubeId:
+    label: YouTube ID — enter as soon as the YouTube video is available
+    type: text
+    help: This is used by the template to automatically display the video as well as the thumbnail. Copy it from the part of the YouTube video URL following '?v='. For example, if the URL is 'https://www.youtube.com/watch?v=tntOCGkgt98' then the YouTube ID will be 'tntOCGkgt98'.
+    width: 1/2
+  thumb:
+    label: Thumbanail image
+    type: image
+    help: 'Recommended size: 100px × 66px. If set, this will overwrite the automatically generated YouTube thumbnail.'
+    width: 1/2
+
+  text:
+    label: Video description
+    type:  markdown
+    header1: h3
+    header2: h4
+    tools:
+      - header1
+      - header2
+      - bold
+      - italic
+      - link
+      - unorderedList

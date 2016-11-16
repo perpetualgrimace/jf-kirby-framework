@@ -1,0 +1,30 @@
+////////////////////////////////
+// lists
+////////////////////////////////
+
+// inline lists
+.inline-list > li {
+  display: inline-block;
+}
+
+.bullets,
+.content ul {
+  list-style: disc;
+}
+
+// ordered lists
+ol {
+  counter-reset: list-counter;
+
+  li:before {
+  	content: counter(list-counter)'.';
+  	counter-increment: list-counter;
+    position: absolute;
+    left: -$gutter;
+  }
+}
+
+// style definition lists
+dd {
+  margin-top: 0;
+}

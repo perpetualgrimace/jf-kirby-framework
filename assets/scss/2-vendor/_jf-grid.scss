@@ -1,0 +1,113 @@
+////////////////////////////////
+// grid system
+////////////////////////////////
+
+// My very own grid system
+// demo: http://codepen.io/jamesferrell/pen/BKdqpZ
+
+// Config
+$breakpoint-s:      $s;
+$breakpoint-m:      $m;
+$breakpoint-l:      $l;
+
+$max-width:         $max-container-width; // Keep line width in check. If undesired, set to 100% or auto.
+$column-count:      12;   // The html in this demo is marked up for 12 columns, but you can make it whatever.
+$grid-padding:      1rem; // REM is recommended here for scaling, but other units work too. Percentages get awkward at large viewports if max-width is set.
+$split-amount:      4;    // In a compact grid, $grid-padding is divided by this number. Should be > 2.
+
+
+// scale document
+html {
+  font-size: 100%; // 16px
+
+  @media (min-width: $breakpoint-s) {
+    font-size: 112.5%; // 18px
+  }
+
+  @media (min-width: $breakpoint-l) {
+    font-size: 125%; // 20px
+  }
+}
+
+
+// container
+.g-container {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $grid-padding;
+}
+
+// main grid
+.g-columns {
+  @include clearfix; // necessary because floats
+
+  .g-col {
+    margin-top: 0;
+    box-sizing: border-box;
+    float: left;
+    width: 100%; // initial
+    max-width: 100%;
+    padding: $grid-padding;
+  }
+
+  // nested columns
+  .g-columns {
+    margin: -$grid-padding; // offset padding
+  }
+  @media screen and (min-width: $breakpoint-m) {
+    @for $i from 1 through $column-count {
+      .g-#{$i} {
+        width: #{ $i * (100% / $column-count) };
+      }
+    }
+  }
+}
+
+
+// double grid width on smaller viewports before collapsing into one
+.g-columns.g-doubling {
+  @media screen and (min-width: $breakpoint-s) and (max-width: $breakpoint-l - 0.001) {
+    @for $i from 1 through ($column-count - 1) {
+      .g-#{$i} {
+        width: #{ $i * (100% / ($column-count / 2)) };
+      }
+    }
+    // reset width for nested columns
+    .g-columns .g-col {
+      width: 100% !important;
+    }
+  }
+}
+
+
+// keep the same column span across all viewports
+.g-columns.g-constant {
+  margin: $grid-padding; // offset padding
+  @for $i from 1 through $column-count {
+    .g-#{$i} {
+      width: #{ $i * (100% / $column-count) };
+    }
+  }
+}
+
+
+// compact grid with smaller padding
+.g-columns.g-compact {
+  // offset smaller column padding by adding padding to the container -- with the power of math!
+  padding: $grid-padding - ($grid-padding / $split-amount);
+
+  .g-col {
+    padding: $grid-padding / $split-amount;
+
+    .g-columns {
+      margin: -($grid-padding / $split-amount);
+    }
+  }
+}
+
+
+// no gutters
+.g-columns.g-gutterless .g-col {
+  padding: 0;
+}
