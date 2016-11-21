@@ -14,7 +14,7 @@ It makes use of Kirby CMS, Sass, Gulp, and minimal Javascript (including jQuery,
 - Clients love it because the panel is super user-friendly and customizable (if you put the time into setting up blueprints correctly).
 - My coworkers love it because they don't have to listen to me complain about how much I hate dealing with Wordpress.
 
-Everybody wins. Try it out for free as long as you like &rarr; [getkirby.com](getkirby.com).
+Everybody wins. Try it out for free as long as you like at [getkirby.com](getkirby.com).
 
 I've included the Kirby and Kirby Panel repos as submodules. Which seems smart and easily updateable.
 
@@ -231,39 +231,51 @@ I go for readability over cuteness and rigidity when marking up components and c
 
 Here's an example of a list of links:
 
+<code>
+
 .nav-list (ul.nav-list)
 
-  .nav-item (li.nav-item)
+.nav-item (li.nav-item)
 
-    .nav-link (a.nav-link)
+.nav-link (a.nav-link)
+
+</code>
 
 Here's a more complicated example:
 
+<code>
+
 .card-container (div.card-container)
 
-  .card-thumb (a.card-thumb)
+.card-thumb (a.card-thumb)
 
-    .card-img (img.card-img)
+.card-img (img.card-img)
 
-  .card-caption (div.card-caption)
+.card-caption (div.card-caption)
 
-    .card-title (a.card-title)
+.card-title (a.card-title)
 
-    .card-meta (p.card-meta)
+.card-meta (p.card-meta)
+
+</code>
 
 Finally, when modifying classes, I will add a modifier namespace (namespace namespace?) to the class. I'll also leave the unmodified classes there too. This leads to some clunky html and inevitable style overrides, but it's easy to understand the structure. For example:
 
+<code>
+
 .video-card-container (div.card-container)
 
-  .video-card-thumb (a.card-thumb)
+.video-card-thumb (a.card-thumb)
 
-    .video-card-img (img.card-img)
+.video-card-img (img.card-img)
 
-  .video-card-caption (div.card-caption)
+.video-card-caption (div.card-caption)
 
-    .video-card-title (a.card-title)
+.video-card-title (a.card-title)
 
-    .video-card-meta (p.card-meta)
+.video-card-meta (p.card-meta)
+
+</code>
 
 
 
