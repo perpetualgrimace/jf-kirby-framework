@@ -2,9 +2,13 @@
 // base theme (light)
 ////////////////////////////////
 
+// page background
+html {
+  background: $white;
+}
+
 // main style
 main {
-  background: $white;
   color: $black;
 
   // links

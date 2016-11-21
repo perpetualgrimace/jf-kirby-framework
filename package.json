@@ -1,7 +1,11 @@
 {
   "name": "jf-kirby-framework",
   "version": "1.0.0",
-  "description": "Framework using KirbyCMS, Scss, and Gulp.",
+  "description": "A starting point for client sites. Uses Kirby CMS, Sass, Gulp, and minimal Javascript.",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/JamesFerrell/jf-kirby-framework"
+  },
   "main": "gulpfile.js",
   "dependencies": {
     "browser-sync": "^2.17.6",

@@ -22,6 +22,7 @@ var scssPartialPath = 'assets/scss/**/*.scss';
 var jsPath          = 'assets/js/**/*.js';
 var cssBuildPath    = 'assets/build/css';
 var jsBuildPath     = 'assets/build/js';
+var pixremTarget    = 'main.min.css';
 
 
 // Error handling
@@ -53,13 +54,16 @@ gulp.task('scripts', function() {
 
 
 // Process css
-gulp.task('styles', function () {
+gulp.task('styles', function() {
   gulp.src(scssMainPath)
 
   // initiate sourcemaps
-  .pipe(sourcemaps.init({}))
+  .pipe(sourcemaps.init({largeFile: true}))
   // compile sass
   .pipe(sass()).on('error', handleError)
+  // update sourcemaps
+  .pipe(sourcemaps.write({includeContent: false}))
+  .pipe(sourcemaps.init({loadMaps: true}))
   // autoprefixer
   .pipe(autoprefixer({
     browsers: ['last 2 versions', '> 2%'],
@@ -68,18 +72,25 @@ gulp.task('styles', function () {
     supports: false,
     flexbox: 'no-2009'
   }))
-  // rem fallback
-  .pipe(pixrem('20px'))
+  // update sourcemaps
+  .pipe(sourcemaps.write({includeContent: false}))
+  .pipe(sourcemaps.init({loadMaps: true}))
   // rename the file
   .pipe(rename({suffix: '.min'}))
   // minify css
   .pipe(cleanCSS())
   // update sourcemaps
-  .pipe(sourcemaps.write('.', {
-    includeContent: false,
-    sourceRoot: cssBuildPath
-  }))
+  .pipe(sourcemaps.write())
   // set destination
+  .pipe(gulp.dest(cssBuildPath));
+});
+
+
+// rem fallback
+gulp.task('pixrem', function() {
+  gulp.src(cssBuildPath + '/' + pixremTarget)
+  .pipe(rename({prefix: 'pixrem.'}))
+  .pipe(pixrem('20px'))
   .pipe(gulp.dest(cssBuildPath));
 });
 
@@ -100,9 +111,9 @@ gulp.task('bs-reload', function () {
 
 
 // Watch scss, js and html files
-gulp.task('default', ['clean', 'styles', 'scripts', 'browser-sync'], function() {
-  // Watch scss, run the sass task on change
-  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['styles']);
+gulp.task('default', ['clean', 'styles', 'scripts', 'pixrem', 'browser-sync'], function() {
+  // Watch scss, run the sass and pixrem tasks on change
+  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['styles', 'pixrem']);
   // Watch js files, run the scripts task on change
   gulp.watch(jsPath, ['scripts']);
   // Watch php files, run the bs-reload task on change

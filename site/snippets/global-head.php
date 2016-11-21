@@ -11,8 +11,21 @@
 
   <title><?= $site->title() ?> | <?= $page->title() ?></title>
 
-  <? snippet('global-head-seo') ?>
-  <? snippet('global-head-icons') ?>
-  <?= css('assets/build/css/main.min.css') ?>
+  <?
+
+  // meta text and image for linking and sharing
+  snippet('global-head-seo');
+
+  // favicon and touch icons
+  snippet('global-head-icons');
+
+  // if on localhost, use the un pixrem'd stylesheet
+  if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ) {
+    echo css('assets/build/css/main.min.css');
+  } else {
+    echo css('assets/build/css/pixrem.main.min.css');
+  };
+
+  ?>
 
 </head>
