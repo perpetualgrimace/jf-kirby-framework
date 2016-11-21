@@ -231,51 +231,39 @@ I go for readability over cuteness and rigidity when marking up components and c
 
 Here's an example of a list of links:
 
-<code>
+<code>.nav-list (ul.nav-list)</code>
 
-.nav-list (ul.nav-list)
+<code>.nav-item (li.nav-item)</code>
 
-.nav-item (li.nav-item)
-
-.nav-link (a.nav-link)
-
-</code>
+<code>.nav-link (a.nav-link)</code>
 
 Here's a more complicated example:
 
-<code>
+<code>.card-container (div.card-container)</code>
 
-.card-container (div.card-container)
+<code>.card-thumb (a.card-thumb)</code>
 
-.card-thumb (a.card-thumb)
+<code>.card-img (img.card-img)</code>
 
-.card-img (img.card-img)
+<code>.card-caption (div.card-caption)</code>
 
-.card-caption (div.card-caption)
+<code>.card-title (a.card-title)</code>
 
-.card-title (a.card-title)
-
-.card-meta (p.card-meta)
-
-</code>
+<code>.card-meta (p.card-meta)</code>
 
 Finally, when modifying classes, I will add a modifier namespace (namespace namespace?) to the class. I'll also leave the unmodified classes there too. This leads to some clunky html and inevitable style overrides, but it's easy to understand the structure. For example:
 
-<code>
+<code>.video-card-container (div.card-container)</code>
 
-.video-card-container (div.card-container)
+<code>.video-card-thumb (a.card-thumb)</code>
 
-.video-card-thumb (a.card-thumb)
+<code>.video-card-img (img.card-img)</code>
 
-.video-card-img (img.card-img)
+<code>.video-card-caption (div.card-caption)</code>
 
-.video-card-caption (div.card-caption)
+<code>.video-card-title (a.card-title)</code>
 
-.video-card-title (a.card-title)
-
-.video-card-meta (p.card-meta)
-
-</code>
+<code>.video-card-meta (p.card-meta)</code>
 
 
 
