@@ -56,25 +56,31 @@ Beyond the basic Kirby install, I've also included the following handy plugins (
 #### Visual Markdown field
 
 Replaces the default Kirby textarea field in the panel. Useful for clients that think Markdown is weird / hard.
+
 [https://github.com/JonasDoebertin/kirby-visual-markdown](https://github.com/JonasDoebertin/kirby-visual-markdown)
 
 #### Kirby Patterns
 
-Still wrapping my head around this. But it's a way of creating a pattern lab that is actually reusable in your templates. Super cool. [https://github.com/getkirby-plugins/patterns-plugin](https://github.com/getkirby-plugins/patterns-plugin)
+Still wrapping my head around this. But it's a way of creating a pattern lab that is actually reusable in your templates. Super cool.
+
+[https://github.com/getkirby-plugins/patterns-plugin](https://github.com/getkirby-plugins/patterns-plugin)
 
 #### MinifyHTML
 
 Does exactly what you'd think. Every bit helps, right?
+
 [https://github.com/ian-cox/Kirby-MinifyHTML](https://github.com/ian-cox/Kirby-MinifyHTML)
 
 #### Kirby Table Plugin
 
 Adds markdown syntax for tables.
+
 [https://github.com/julien-gargot/kirby-plugin-table](https://github.com/julien-gargot/kirby-plugin-table)
 
 #### Kirby Uniform
 
 Robust form handling. Because I'm not so good with the back-end stuff.
+
 [https://github.com/mzur/kirby-uniform](https://github.com/mzur/kirby-uniform)
 
 
@@ -84,12 +90,12 @@ Robust form handling. Because I'm not so good with the back-end stuff.
 I'm using Gulp to do a few things:
 
 - concat and minify JS files
-- compile SCSS files, run autoprefixer and pixrem, and output a minified CSS file
+- compile SCSS files, run Autoprefixer and Pixrem, and output a minified CSS file
 - set up a localhost proxy server to use with BrowserSync and either reload the page (when changes are made to .md or .php files) or inject the updated build files without reloading (when changes are made to .JS or .SCSS files)
 
 The default task wipes and rebuilds the build folder (CSS and JS files), starts up the BrowserSync server, and watches the aforementioned files.
 
-So far the gulp file is working as intended, and when it runs across an error, it sends an alert (via beepbeep), logs the error in the terminal, and keeps on going (via this.emit('end')). *Side note: why was that so hard to figure out?*
+So far the gulp file is working as intended, and when it runs across an error, it sends an alert (via beepbeep), logs the error in the terminal, and keeps on going (via <code>this.emit('end')</code>). *Side note: why was that so hard to figure out?*
 
 I've also set up some paths as variables just below the module list in case I decide to restructure the way I organize my files in the future.
 
@@ -123,7 +129,7 @@ To break it down further:
 
 The only partials that should go here are variables, mixins, and utility classes, in that order.
 
-1. Variables. Colors, font sizes (named after (Greek letters)[http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-CSS/]), breakpoints (named after t-shirt sizes), assorted measurements, and motion (for now, just the default timing setting for transitions).
+1. Variables. Colors, font sizes (named after [Greek letters](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-CSS/)), breakpoints (named after t-shirt sizes), assorted measurements, and motion (for now, just the default timing setting for transitions).
 2. Mixins. Typography, layout & positioning, responsive background images, shadows, various components.
 3. Utility classes. Typography, layout, margins, padding, hide content (by breakpoint). All utility classes are namespaced with <code>u-</code>. [Lots of !important, which is a good thing](http://csswizardry.com/2016/05/the-importance-of-important/) in this context. Some classes include the $m (medium) breakpoint, and a limited few utilize mixins.
 
@@ -131,7 +137,7 @@ The only partials that should go here are variables, mixins, and utility classes
 
 This is where vendor code goes. This code should be as untouched as possible.
 
-For the purposes of keeping this framework lean, the only thing here is my own little grid system. [potentially outdated codepen demo](http://codepen.io/jamesferrell/pen/BKdqpZ) | Repo (coming after I work through issues).
+For the purposes of keeping this framework lean, the only thing here is my own little grid system. [Potentially outdated codepen demo](http://codepen.io/jamesferrell/pen/BKdqpZ) | Repo (coming after I work through issues).
 
 I wanted to build the type of grid that makes sense as a developer (by padding all the things), but the designer in me wanted the edges nested objects to line up with the parent container, so I use negative margins for that.
 
@@ -154,7 +160,7 @@ Also, there are a few modifying classes that can be added to the <code>.g-column
 Global style for elements, easily overwritten.
 
 1. Reset. Some stuff I found myself using across the board, such as a good ol' nuclear margin and padding reset, box-sizing: border-box and position: relative by default, max-width for images and such, form field resets, and some cherry picked stuff from normalize.CSS.
-2. Typography. Default fonts, font-sizes, and font-weights, and line-heights. A .heading class that makes h1-6 style easily reusable. Classes that correspond to the font-size variables (with breakpoints that scale the really large ones down). Rules for when to honor <code><br></code> tags.
+2. Typography. Default fonts, font-sizes, and font-weights, and line-heights. A .heading class that makes h1-6 style easily reusable. Classes that correspond to the font-size variables (with breakpoints that scale the really large ones down). Rules for when to honor <code>br</code> tags.
 3. Colors. Default color, background-color, border-color, etc. A dark color scheme can be set on a parent to affect all children using the namespaced class <code>.c-dark</code> (c for colors).
 4. Lists. Unordered, ordered, and definition lists.
 5. Tables. Table, rows headers, and columns.
@@ -223,33 +229,45 @@ I've mostly gone over these while explaining my SCSS partial organization, but h
 
 I go for readability over cuteness and rigidity when marking up components and classes. So I'll namespace each class with the component name, followed by the element name.
 
-Here's an example of a list of links (indented for readability):
+Here's an example of a list of links:
 
 .nav-list (ul.nav-list)
+
   .nav-item (li.nav-item)
+
     .nav-link (a.nav-link)
 
 Here's a more complicated example:
 
 .card-container (div.card-container)
+
   .card-thumb (a.card-thumb)
+
     .card-img (img.card-img)
+
   .card-caption (div.card-caption)
+
     .card-title (a.card-title)
+
     .card-meta (p.card-meta)
 
 Finally, when modifying classes, I will add a modifier namespace (namespace namespace?) to the class. I'll also leave the unmodified classes there too. This leads to some clunky html and inevitable style overrides, but it's easy to understand the structure. For example:
 
 .video-card-container (div.card-container)
+
   .video-card-thumb (a.card-thumb)
+
     .video-card-img (img.card-img)
+
   .video-card-caption (div.card-caption)
+
     .video-card-title (a.card-title)
+
     .video-card-meta (p.card-meta)
 
 
 
-## JS
+## Javascript
 
 I use jQuery and generally avoid using javascript. Come at me, bro.
 
@@ -267,17 +285,17 @@ At some point in the near future I plan on looking into module loading, but for 
 
 ## Installation
 
-I figure most people are here to see how I think, but here are some instructions for getting this up and running just in case:
+I assume you're probably here to see how I think, but here are some instructions for getting this thing up and running just in case:
 
 1. Install npm and gulp globally (if necessary).
 2. Install MAMP (or your localhost server maker of choice).
-3. Clone (or download) this repo.
+3. Fork (or download) [this repo](https://github.com/JamesFerrell/jf-kirby-framework).
 4. Run <code>npm install</code> from the terminal to get all the gulp dependencies in place.
 5. Run <code>gulp</code> from the terminal.
 
 
 
-## The end, for now.
+## The end, for now
 
 In the process of formalizing the my approach to organization and naming, I noticed some inconsistencies and (mostly) fixed them. I think this was a worthwhile project and I'm glad I did it.
 
