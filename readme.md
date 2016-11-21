@@ -95,7 +95,7 @@ I'm using Gulp to do a few things:
 
 The default task wipes and rebuilds the build folder (CSS and JS files), starts up the BrowserSync server, and watches the aforementioned files.
 
-So far the gulp file is working as intended, and when it runs across an error, it sends an alert (via beepbeep), logs the error in the terminal, and keeps on going (via <code>this.emit('end')</code>). *Side note: why was that so hard to figure out?*
+So far the Gulp file is working as intended, and when it runs across an error, it sends an alert (via beepbeep), logs the error in the terminal, and keeps on going (via <code>this.emit('end')</code>). *Side note: why was that so hard to figure out?*
 
 I've also set up some paths as variables just below the module list in case I decide to restructure the way I organize my files in the future.
 
@@ -287,11 +287,13 @@ At some point in the near future I plan on looking into module loading, but for 
 
 I assume you're probably here to see how I think, but here are some instructions for getting this thing up and running just in case:
 
-1. Install npm and gulp globally (if necessary).
-2. Install MAMP (or your localhost server maker of choice).
-3. Fork (or download) [this repo](https://github.com/JamesFerrell/jf-kirby-framework).
-4. Run <code>npm install</code> from the terminal to get all the gulp dependencies in place.
-5. Run <code>gulp</code> from the terminal.
+1. Install NPM and Gulp globally (if necessary).
+2. Install MAMP (or your localhost server maker of choice). Open it and start servers.
+3. Fork [this repo](https://github.com/JamesFerrell/jf-kirby-framework).
+4. Clone the repo and initialize submodules with one command: <code>git clone --recursive -j8 https://your-cloned-repo-url</code>
+5. Open up gulpfile.js. On line 19, redefine  <code>var proxyUrl</code> to match the name of your repo. <em>(Or, reconfigure the <code>browser-sync</code> task however you like)<em>
+6. <code>cd</code> into the newly cloned folder and use <code>npm install</code> to install all of the Gulp dependencies.
+7. Run <code>Gulp</code>.
 
 
 
