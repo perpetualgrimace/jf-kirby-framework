@@ -5,7 +5,7 @@ if(isset($layout)): $layout = $layout; else: $layout = 'g-4'; endif;
 
 ?>
 
-<aside class="sidebar g-column <?= $layout ?>">
+<aside class="sidebar g-col <?= $layout ?>">
 
   <p>Check out this sidebar</p>
 
