@@ -130,8 +130,9 @@ To break it down further:
 The only partials that should go here are variables, mixins, and utility classes, in that order.
 
 1. Variables. Colors, font sizes (named after [Greek letters](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-CSS/)), breakpoints (named after t-shirt sizes), assorted measurements, and motion (for now, just the default timing setting for transitions).
-2. Mixins. Typography, layout & positioning, responsive background images, shadows, various components.
-3. Utility classes. Typography, layout, margins, padding, hide content (by breakpoint). All utility classes are namespaced with <code>u-</code>. [Lots of !important, which is a good thing](http://csswizardry.com/2016/05/the-importance-of-important/) in this context. Some classes include the $m (medium) breakpoint, and a limited few utilize mixins.
+2. Functions. For now, there's just a px to rem conversion function. For days when simple math feels really hard.
+3. Mixins. Typography, layout & positioning, responsive background images, shadows, various components.
+4. Utility classes. Typography, layout, margins, padding, hide content (by breakpoint). All utility classes are namespaced with <code>u-</code>. [Lots of !important, which is a good thing](http://csswizardry.com/2016/05/the-importance-of-important/) in this context. Some classes include the $m (medium) breakpoint, and a limited few utilize mixins.
 
 #### Vendor
 
@@ -161,12 +162,13 @@ Global style for elements, easily overwritten.
 
 1. Reset. Some stuff I found myself using across the board, such as a good ol' nuclear margin and padding reset, box-sizing: border-box and position: relative by default, max-width for images and such, form field resets, and some cherry picked stuff from normalize.CSS.
 2. Typography. Default fonts, font-sizes, and font-weights, and line-heights. A .heading class that makes h1-6 style easily reusable. Classes that correspond to the font-size variables (with breakpoints that scale the really large ones down). Rules for when to honor <code>br</code> tags.
-3. Colors. Default color, background-color, border-color, etc. A dark color scheme can be set on a parent to affect all children using the namespaced class <code>.c-dark</code> (c for colors).
+3. Theme. Default color, background-color, border-color, etc. A dark color scheme can be set on a parent to affect all children using the namespaced class <code>.dark-theme</code>.
 4. Lists. Unordered, ordered, and definition lists.
 5. Tables. Table, rows headers, and columns.
 6. Forms. Inputs, textareas, labels, buttons.
 7. Blockquotes. Some tricky CSS that makes sure the attribution is styled accordingly, even when generated from Markdown, unless there is only one line.
 8. Vertical-margins. Inspired by [Heydon Pickering's Lobotomized Owl Selector](http://alistapart.com/article/axiomatic-CSS-and-lobotomized-owls), I took that adjacent sibling selector and used it in ways that would probably make Heydon sad. I've since scaled it back considerably and now I mostly use utility classes to quickly modify vertical margins where possible. I may eventually roll this up into a different partial if I can think of something that makes sense. But for now, I still like to have a dedicated place where I can specify the vertical spacing between related elements, especially for content entered by non-web people through the CSS.
+9. Print. Print media overrides.
 
 #### Layout
 

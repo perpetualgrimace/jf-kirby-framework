@@ -1,5 +1,6 @@
 // Utilities
 @import "1-utils/variables";
+@import "1-utils/functions";
 @import "1-utils/mixins";
 @import "1-utils/utility-classes";
 
@@ -9,12 +10,13 @@
 // Base
 @import "3-base/reset";
 @import "3-base/typography";
-@import "3-base/colors";
+@import "3-base/theme";
 @import "3-base/lists";
 @import "3-base/tables";
 @import "3-base/forms";
 @import "3-base/blockquotes";
 @import "3-base/vertical-margins";
+@import "3-base/print";
 
 // Layout
 @import "4-layout/layout";

@@ -20,6 +20,7 @@ var proxyUrl        = 'localhost:8888/jf-kirby-framework/';
 var scssMainPath    = 'assets/scss/*.scss';
 var scssPartialPath = 'assets/scss/**/*.scss';
 var jsPath          = 'assets/js/**/*.js';
+var jsPatternPath   = 'site/patterns/**/*.js';
 var cssBuildPath    = 'assets/build/css';
 var jsBuildPath     = 'assets/build/js';
 var pixremTarget    = 'main.min.css';
@@ -41,7 +42,7 @@ gulp.task('clean', function() {
 
 // Process js
 gulp.task('scripts', function() {
-  return gulp.src(jsPath)
+  return gulp.src([jsPath, jsPatternPath])
   // concat files
   .pipe(concat('main.js')).on('error', handleError)
   // rename
@@ -115,7 +116,7 @@ gulp.task('default', ['clean', 'styles', 'scripts', 'pixrem', 'browser-sync'], f
   // Watch scss, run the sass and pixrem tasks on change
   gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['styles', 'pixrem']);
   // Watch js files, run the scripts task on change
-  gulp.watch(jsPath, ['scripts']);
+  gulp.watch([jsPath, jsPatternPath], ['scripts']);
   // Watch php files, run the bs-reload task on change
   gulp.watch(['site/**/*.php', 'content/**/*.md'], ['bs-reload']).on('error', handleError);
 });

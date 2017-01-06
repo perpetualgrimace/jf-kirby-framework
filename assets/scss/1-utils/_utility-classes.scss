@@ -43,7 +43,7 @@
 .u-underline {
   text-decoration: underline !important;
 }
-.u-no-underline {
+.u-underline-off {
   text-decoration: none !important;
 }
 
@@ -84,6 +84,12 @@
   @media(min-width: $m) {
     display: flex;
   }
+}
+
+// inline images
+.u-inline-img > * {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 
@@ -132,6 +138,7 @@
 
 // horizontally center block elements
 .u-margins-auto {
+  float: none !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }

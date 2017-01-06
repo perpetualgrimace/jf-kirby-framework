@@ -12,7 +12,7 @@ $breakpoint-l:      $l;
 
 $max-width:         $max-container-width; // Keep line width in check. If undesired, set to 100% or auto.
 $column-count:      12;   // The html in this demo is marked up for 12 columns, but you can make it whatever.
-$grid-padding:      1rem; // REM is recommended here for scaling, but other units work too. Percentages get awkward at large viewports if max-width is set.
+$grid-padding:      $gutter; // REM is recommended here for scaling, but other units work too. Percentages get awkward at large viewports if max-width is set.
 $split-amount:      4;    // In a compact grid, $grid-padding is divided by this number. Should be > 2.
 
 

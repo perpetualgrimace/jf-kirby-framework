@@ -1,0 +1,31 @@
+// thanks, Manuel Matuzovic
+// http://codepen.io/matuzo/pen/oYvBjN?editors=1100
+
+@media print {
+  body {
+    background: none;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  // avoid splitting of ul elements
+  ul {
+    page-break-inside: avoid;
+  }
+
+  // Print at least 2 lines on the current page and 4 lines on the next page
+  p {
+    widows: 4;
+    orphans: 2;
+  }
+
+  // Display targets of links
+  a[href^="http"]:not([href*=""]):after {
+      content: " (" attr(href) ")";
+  }
+
+  // Display expansions of abbreviations
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+}

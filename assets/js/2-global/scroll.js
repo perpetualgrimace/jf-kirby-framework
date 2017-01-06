@@ -1,21 +1,28 @@
 $(document).ready(function() {
 
+  ////////////////////////////////
+  // smooth scroll
+  ////////////////////////////////
+
+  // list of selectors to exclude
+  var excludes = [
+    '[href="#"]',
+    '[data-nav="toggle"]'
+  ];
+  // create selector by joining excluded selectors with :not()
+  var selector = 'a[href*="#"]:not(' + excludes.join('):not(') + ')';
+  var timing = 800;
+
   // smooth scroll
   $(function() {
-    $('target[id]').attr('tabindex', '-1');
-
-    $('a[href*=#]:not([href=#]):not(data-nav="toggle")').click(function() {
-      var $linkElem = $(this);
+    $(selector).click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top
-          }, 800, function() {
-            target.focus();
-            window.location.hash = $linkElem.attr('href').substring(1);
-          });
+          $('html, body').animate({
+            scrollTop: target.offset().top - $('.nav-container').outerHeight(true)
+          }, timing);
           return false;
         }
       }

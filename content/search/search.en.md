@@ -6,4 +6,4 @@ text:
 
 {{search-text}}
 
-(button: Back to home link: http://choice360.org)
+(button: Back to home link: {{home-link}})
