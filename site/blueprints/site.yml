@@ -21,12 +21,12 @@ fields:
     type:  tags
     width: 1/2
   dropdownable:
-    label: nav items with dropdown menus
-    type: markdown
-    toolbar: hide
+    label: Pages with dropdown menus
+    type: checkboxes
+    options: visibleChildren
     width: 1/2
   lv3dropdown:
-    label: additional nav options
+    label: Additional nav options
     type: checkbox
     text: display lv-3 pages in dropdown menu?
     width: 1/2

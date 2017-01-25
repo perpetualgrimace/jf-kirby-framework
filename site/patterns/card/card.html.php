@@ -28,7 +28,7 @@
 
 ?>
 
-<div class="<?= $contentType?>-card-container card-container g-col <?= $cardLayout ?>">
+<article class="<?= $contentType?>-card-container card-container g-col <?= $cardLayout ?>">
 
   <a href="<?= $item->url() ?>" class="<?= $contentType?>-card-thumb card-thumb" tabindex="-1">
     <img class="<?= $contentType?>-card-img card-img" src="<?= $thumbImg ?>" alt="" draggable="false">
@@ -39,4 +39,4 @@
      <p class="<?= $contentType?>-card-meta card-meta">Posted by <?= $author ?></p>
   </div>
 
-</div>
+</article>

@@ -51,7 +51,7 @@ $menutext = 'menu';
 
             <!-- dropdown, checked against $site->dropdownable() list -->
             <? if($item->hasChildren() &&
-            in_array($item->uri(), $site->dropdownable()->yaml())): ?>
+            in_array($item->uri(), explode(', ', $site->dropdownable()))): ?>
 
             <ul class="dropdown" role="group">
               <? foreach($item->children()->visible() as $child): ?>

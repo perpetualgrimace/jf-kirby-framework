@@ -23,7 +23,6 @@ $(document).ready(function() {
           $('html, body').animate({
             scrollTop: target.offset().top - $('.nav-container').outerHeight(true)
           }, timing);
-          return false;
         }
       }
     });
