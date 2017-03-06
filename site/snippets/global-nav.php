@@ -56,8 +56,8 @@ $menutext = 'menu';
             <ul class="dropdown" role="group">
               <? foreach($item->children()->visible() as $child): ?>
 
-                <li class="dropdown-item">
-                  <a id="dropdown-item-<?= $child->slug() ?>" class="dropdown-link<? e($child->isOpen(), ' is-active-pg') ?>" <? e( ($child->slug() == $page->slug() ), 'aria-describedby="current"') ?> href="<? e( $child->isOpen() && ( $page->slug() == $child->slug() ), '#main', $child->url() ) ?>" role="menuitem">
+                <li class="dropdown-item" role="menuitem">
+                  <a id="dropdown-item-<?= $child->slug() ?>" class="dropdown-link<? e($child->isOpen(), ' is-active-pg') ?>" <? e( ($child->slug() == $page->slug() ), 'aria-describedby="current"') ?> href="<? e( $child->isOpen() && ( $page->slug() == $child->slug() ), '#main', $child->url() ) ?>">
                     <?= $child->title() ?>
                   </a>
                 </li><!-- dropdown-item -->

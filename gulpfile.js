@@ -42,9 +42,10 @@ gulp.task('clean', function() {
 
 // Process js
 gulp.task('scripts', function() {
-  return gulp.src([jsPath, jsPatternPath])
+  return del(jsBuildPath),
+  gulp.src([jsPath, jsPatternPath]).on('error', handleError)
   // concat files
-  .pipe(concat('main.js')).on('error', handleError)
+  .pipe(concat('main.js'))
   // rename
   .pipe(rename({suffix: '.min'}))
   // minify
@@ -56,43 +57,25 @@ gulp.task('scripts', function() {
 
 // Process css
 gulp.task('styles', function() {
-  gulp.src(scssMainPath)
+  return del(cssBuildPath),
+  gulp.src(scssMainPath).on('error', handleError)
 
-  // initiate sourcemaps
-  .pipe(sourcemaps.init({largeFile: true}))
-  // compile sass
-  .pipe(sass()).on('error', handleError)
-  // update sourcemaps
-  .pipe(sourcemaps.write({includeContent: false}))
-  .pipe(sourcemaps.init({loadMaps: true}))
-  // autoprefixer
-  .pipe(autoprefixer({
-    browsers: ['last 2 versions', '> 2%'],
-    cascade: false,
-    remove: false,
-    supports: false,
-    flexbox: 'no-2009'
-  }))
-  // update sourcemaps
-  .pipe(sourcemaps.write({includeContent: false}))
-  .pipe(sourcemaps.init({loadMaps: true}))
-  // rename the file
-  .pipe(rename({suffix: '.min'}))
-  // minify css
-  .pipe(cleanCSS())
-  // update sourcemaps
-  .pipe(sourcemaps.write())
-  // set destination
-  .pipe(gulp.dest(cssBuildPath));
-});
-
-
-// rem fallback
-gulp.task('pixrem', function() {
-  gulp.src(cssBuildPath + '/' + pixremTarget)
-  .pipe(rename({prefix: 'pixrem.'}))
-  .pipe(pixrem('20px'))
-  .pipe(gulp.dest(cssBuildPath));
+    .pipe(sass({outputStyle: 'compressed'})).on('error', handleError)
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', '> 2%'],
+      cascade: false,
+      remove: false,
+      supports: false,
+      flexbox: 'no-2009'
+    })).on('error', handleError)
+    // minify css
+    .pipe(cleanCSS()).on('error', handleError)
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(cssBuildPath))
+    // pixrem
+    .pipe(rename({prefix: 'pixrem.'}))
+    .pipe(pixrem('20px')).on('error', handleError)
+    .pipe(gulp.dest(cssBuildPath));
 });
 
 
@@ -112,9 +95,9 @@ gulp.task('bs-reload', function () {
 
 
 // Watch scss, js and html files
-gulp.task('default', ['clean', 'styles', 'scripts', 'pixrem', 'browser-sync'], function() {
-  // Watch scss, run the sass and pixrem tasks on change
-  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['styles', 'pixrem']);
+gulp.task('default', ['clean', 'styles', 'scripts', 'browser-sync'], function() {
+  // Watch scss, run the styles task on change
+  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['styles']);
   // Watch js files, run the scripts task on change
   gulp.watch([jsPath, jsPatternPath], ['scripts']);
   // Watch php files, run the bs-reload task on change

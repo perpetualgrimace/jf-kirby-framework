@@ -75,18 +75,18 @@ small, label { font-size: $milli;}
   font-size: $beta;
 }
 .gamma,
-.gamma > p,
-.gamma > li {
+.gamma p,
+.gamma li {
   font-size: $gamma;
 }
 .delta,
-.delta > p,
-.delta > li {
+.delta p,
+.delta li {
   font-size: $delta;
 }
 .milli,
-.milli > p,
-.milli > li  {
+.milli p,
+.milli li  {
   font-size: $milli;
 }
 
