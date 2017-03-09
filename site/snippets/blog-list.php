@@ -47,7 +47,7 @@
     <? if ($items->count() != 0): ?>
       <div class="g-columns">
         <? foreach ($items as $item) {
-          pattern('card', array('item' => $item, 'cardLayout' => $cardLayout));
+          snippet('card', array('item' => $item, 'cardLayout' => $cardLayout));
         } ?>
       </div>
     <? endif ?>
@@ -57,7 +57,7 @@
     <? if($page->isHomePage() && ($pagination->items() > $pagNum)) { ?>
       <a href="blog" class="more-link">All posts</a>
     <? } elseif (isset($pagination) && ($pagination->items() > $pagNum)) {
-      pattern('pagination', array('pagination' => $pagination));
+      snippet('pagination', array('pagination' => $pagination));
     } ?>
 
   </div>

@@ -32,7 +32,6 @@ There are 4 Kirby-related folders in the root directory:
   - Controllers (optional). Contains logic for corresponding templates.
   - Fields (optional). Custom fields to be used in admin panel blueprints.
   - Languages (optional). Enable different languages for custom translations.
-  - Patterns (custom plugin). Reusable components with corresponding css and logic and a nice pattern lab interface. More on this under SCSS partials.
   - Plugins (optional). Should probably be self-explanatory.
   - Snippets. Reusable chunks of code. Basically, they're includes.
   - Tags (optional). Custom tags to be used in content files.
@@ -58,12 +57,6 @@ Beyond the basic Kirby install, I've also included the following handy plugins (
 Replaces the default Kirby textarea field in the panel. Useful for clients that think Markdown is weird / hard.
 
 [https://github.com/JonasDoebertin/kirby-visual-markdown](https://github.com/JonasDoebertin/kirby-visual-markdown)
-
-#### Kirby Patterns
-
-Still wrapping my head around this. But it's a way of creating a pattern lab that is actually reusable in your templates. Super cool.
-
-[https://github.com/getkirby-plugins/patterns-plugin](https://github.com/getkirby-plugins/patterns-plugin)
 
 #### MinifyHTML
 
@@ -192,15 +185,15 @@ Global site layout.
 
 Every time the code for a particular element starts feeling overly complicated, I isolate it by breaking it out into its own component, with a matching .SCSS file (and .JS file, if necessary). Variants are included in the same SCSS partial.
 
-This gets a little tricky (and awesome) in that I use the Kirby Patterns plugin for components. So my component SCSS partials are actually in a different location from the rest of the SCSS partials (find them in site/patterns/ instead of assets/SCSS/). I like to make an alias (for site/patterns) in the assets/SCSS folder and rename it '5-components'. But aliases don't work when cloned from a repo so I've added '5-components' to the gitignore file.
-
-Okay, with that out of the way, here are some of my most commonly used components, which are included in this framework:
+Here's a list of my most commonly used components, which are included in this framework:
 - breadcrumbs
 - button
 - card
 - next *(initially commented out)*
 - pagination *(initially commented out)*
+- quote *(initially commented out)*
 - scroll-indicator *(initially commented out)*
+- sidebar-nav *(initially commented out)*
 - video
 
 #### Motion

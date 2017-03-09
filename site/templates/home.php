@@ -11,7 +11,7 @@ snippet('global-body-open');
   // page title
   snippet('global-main-open');
     snippet('home-header');
-    // pattern('scroll-indicator');
+    // 'scroll-indicator');
 
     // intro content
     snippet('global-section-open');

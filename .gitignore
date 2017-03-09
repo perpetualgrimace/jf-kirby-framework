@@ -5,4 +5,3 @@ site/accounts/**.php
 node_modules/
 /assets/scss/.sass-cache/**
 /dploy.yaml
-/assets/scss/5-components

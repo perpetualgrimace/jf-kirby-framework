@@ -1,0 +1,57 @@
+////////////////////////////////
+// container
+////////////////////////////////
+
+.sidebar-nav {
+  background: $brand-color;
+  border-radius: $radius-small;
+
+  @media (min-width: $m) {
+    top: 0.325em;
+  }
+}
+
+////////////////////////////////
+// main items
+////////////////////////////////
+
+.sidebar-nav-item + .sidebar-nav-item {
+  margin-top: 0.45em; // fudged
+}
+
+
+////////////////////////////////
+// nested items
+////////////////////////////////
+
+.nested-sidebar-nav-list,
+.nested-sidebar-nav-item {
+  margin-top: 0.25em;
+}
+
+.nested-sidebar-nav-item {
+  padding-left: 0.5rem;
+}
+
+// triangular active page pointer
+.sidebar-nav-link.is-active-pg,
+.nested-sidebar-nav-link.is-active-pg {
+  &:before {
+    @include pseudo;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-top: #{$milli / 2} solid transparent;
+    border-bottom: #{$milli / 2} solid transparent;
+    border-left: #{$milli / 2} solid $white;
+    top: $milli * 0.25;
+  }
+}
+// offset padding
+.sidebar-nav-link.is-active-pg:before {
+  left: -$gutter;
+}
+// offset padding (nested)
+.nested-sidebar-nav-link.is-active-pg:before {
+  left: -($gutter * 1.5);
+}

@@ -17,7 +17,7 @@ else { $headline = $page->title(); }
     </div>
 
     <div class="g-col">
-      <? pattern('breadcrumbs') ?>
+      <? snippet('breadcrumbs') ?>
     </div>
 
   </div>

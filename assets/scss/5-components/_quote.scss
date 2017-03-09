@@ -1,0 +1,26 @@
+.quote {
+  background: $brand-color;
+  color: $white;
+  z-index: 1;
+}
+
+.quote-text {
+  @include text-shadow;
+}
+
+.quote-quote:before {
+  @include text-shadow;
+  font-size: $giga * 1.5;
+  top: 2.75rem;
+  left: 0;
+
+  @media (min-width: $m) {
+    font-size: $giga * 2;
+    top: 3.5rem;
+    left: -1rem;
+  }
+
+  @media (min-width: $xl) {
+    left: -4rem;
+  }
+}

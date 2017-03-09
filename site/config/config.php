@@ -32,10 +32,6 @@ c::set('languages', array(
   )
 ));
 
-// patterns config
-c::set('patterns.preview.css', 'assets/build/css/main.min.css');
-c::set('patterns.preview.js', 'assets/build/js/main.min.js');
-
 // routing
 c::set('routes', array(
 
@@ -52,14 +48,6 @@ c::set('routes', array(
     'pattern' => 'admin',
     'action'  => function() {
       go('panel');
-    }
-  ),
-
-  // components » patterns
-  array(
-    'pattern' => 'components',
-    'action'  => function() {
-      go('patterns');
     }
   )
 ));

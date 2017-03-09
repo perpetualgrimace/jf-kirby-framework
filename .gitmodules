@@ -7,10 +7,6 @@
 [submodule "site/fields/markdown"]
 	path = site/fields/markdown
 	url = https://github.com/JonasDoebertin/kirby-visual-markdown.git
-[submodule "site/plugins/patterns"]
-	path = site/plugins/patterns
-	url = https://github.com/getkirby-plugins/patterns-plugin.git
-	branch = v2
 [submodule "site/plugins/minifyhtml"]
 	path = site/plugins/minifyhtml
 	url = https://github.com/ian-cox/Kirby-MinifyHTML.git
@@ -23,3 +19,4 @@
 [submodule "site/plugins/uniform"]
 	path = site/plugins/uniform
 	url = https://github.com/mzur/kirby-uniform.git
+	branch = v2
