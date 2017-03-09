@@ -10,6 +10,7 @@
 [submodule "site/plugins/patterns"]
 	path = site/plugins/patterns
 	url = https://github.com/getkirby-plugins/patterns-plugin.git
+	branch = v2
 [submodule "site/plugins/minifyhtml"]
 	path = site/plugins/minifyhtml
 	url = https://github.com/ian-cox/Kirby-MinifyHTML.git
