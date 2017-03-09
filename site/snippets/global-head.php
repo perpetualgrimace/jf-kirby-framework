@@ -19,11 +19,11 @@
   // favicon and touch icons
   snippet('global-head-icons');
 
-  // if on localhost, use the un pixrem'd stylesheet
+  // if on localhost, use the dev stylesheet
   if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ) {
-    echo css('assets/build/css/main.min.css');
+    echo css('assets/build/css/main.dev.css');
   } else {
-    echo css('assets/build/css/pixrem.main.min.css');
+    echo css('assets/build/css/main.production.css');
   };
 
   ?>

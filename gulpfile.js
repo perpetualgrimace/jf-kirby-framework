@@ -23,7 +23,6 @@ var jsPath          = 'assets/js/**/*.js';
 var jsPatternPath   = 'site/patterns/**/*.js';
 var cssBuildPath    = 'assets/build/css';
 var jsBuildPath     = 'assets/build/js';
-var pixremTarget    = 'main.min.css';
 
 
 // Error handling
@@ -55,8 +54,8 @@ gulp.task('scripts', function() {
 });
 
 
-// Process css
-gulp.task('styles', function() {
+// Process css for production
+gulp.task('production-styles', function() {
   return del(cssBuildPath),
   gulp.src(scssMainPath).on('error', handleError)
 
@@ -70,11 +69,22 @@ gulp.task('styles', function() {
     })).on('error', handleError)
     // minify css
     .pipe(cleanCSS()).on('error', handleError)
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(cssBuildPath))
+    .pipe(rename({suffix: '.production'}))
     // pixrem
-    .pipe(rename({prefix: 'pixrem.'}))
     .pipe(pixrem('20px')).on('error', handleError)
+    .pipe(gulp.dest(cssBuildPath));
+});
+
+
+// Process css for dev environment
+gulp.task('dev-styles', function() {
+  return del(cssBuildPath),
+  gulp.src(scssMainPath).on('error', handleError)
+
+    .pipe(sourcemaps.init())
+      .pipe(sass({outputStyle: 'compressed'})).on('error', handleError)
+      .pipe(rename({suffix: '.dev'}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(cssBuildPath));
 });
 
@@ -95,9 +105,9 @@ gulp.task('bs-reload', function () {
 
 
 // Watch scss, js and html files
-gulp.task('default', ['clean', 'styles', 'scripts', 'browser-sync'], function() {
+gulp.task('default', ['clean', 'dev-styles', 'production-styles', 'scripts', 'browser-sync'], function() {
   // Watch scss, run the styles task on change
-  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['styles']);
+  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['dev-styles', 'production-styles']);
   // Watch js files, run the scripts task on change
   gulp.watch([jsPath, jsPatternPath], ['scripts']);
   // Watch php files, run the bs-reload task on change
