@@ -87,7 +87,7 @@ if($page->author() != '') {
 <? endif ?>
 <meta property="og:site_name" content="<?= $siteTitle ?>">
 <? if ($img != NULL): ?>
-  <meta name="og:image" content="<?= $img ?>">
+  <meta property="og:image" content="<?= $img ?>">
 <? endif ?>
 <meta property="fb:admins" content="">
 <meta property="fb:app_id" content="">

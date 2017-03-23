@@ -10,7 +10,6 @@ var rename          = require('gulp-rename');
 var beepbeep        = require('beepbeep');
 var minifycss       = require('gulp-minify-css');
 var concat          = require('gulp-concat');
-var plumber         = require('gulp-plumber');
 var del             = require('del');
 var browserSync     = require('browser-sync');
 var reload          = browserSync.reload;
@@ -31,12 +30,6 @@ function handleError(err) {
   this.emit('end');
   beepbeep();
 }
-
-
-// Flush the build folder and rebuild
-gulp.task('clean', function() {
-  return del([cssBuildPath, jsBuildPath]);
-});
 
 
 // Process js
@@ -105,9 +98,9 @@ gulp.task('bs-reload', function () {
 
 
 // Watch scss, js and html files
-gulp.task('default', ['clean', 'dev-styles', 'production-styles', 'scripts', 'browser-sync'], function() {
+gulp.task('default', ['dev-styles', 'production-styles', 'scripts', 'browser-sync'], function() {
   // Watch scss, run the styles task on change
-  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['dev-styles', 'production-styles']);
+  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['dev-styles', 'production-styles', 'bs-reload']);
   // Watch js files, run the scripts task on change
   gulp.watch([jsPath, jsPatternPath], ['scripts']);
   // Watch php files, run the bs-reload task on change
