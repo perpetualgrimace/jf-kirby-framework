@@ -78,7 +78,8 @@ gulp.task('dev-styles', function() {
       .pipe(sass({outputStyle: 'compressed'})).on('error', handleError)
       .pipe(rename({suffix: '.dev'}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(cssBuildPath));
+    .pipe(gulp.dest(cssBuildPath))
+    .pipe(browserSync.stream());
 });
 
 
@@ -100,7 +101,7 @@ gulp.task('bs-reload', function () {
 // Watch scss, js and html files
 gulp.task('default', ['dev-styles', 'production-styles', 'scripts', 'browser-sync'], function() {
   // Watch scss, run the styles task on change
-  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['dev-styles', 'production-styles', 'bs-reload']);
+  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['dev-styles', 'production-styles']);
   // Watch js files, run the scripts task on change
   gulp.watch([jsPath, jsPatternPath], ['scripts']);
   // Watch php files, run the bs-reload task on change
