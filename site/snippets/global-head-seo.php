@@ -36,7 +36,7 @@ if($page->description() != '') {
 if ($page->thumbImg() != '') {
   $img = $page->image($page->thumbImg())->url();
 } elseif ($page->heroImg() != '') {
-  $img = $page->image($page->thumbImg())->url();
+  $img = $page->image($page->heroImg())->url();
 } else {
   $img = NULL;
 }
