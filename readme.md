@@ -88,7 +88,7 @@ I'm using Gulp to do a few things:
 
 The default task wipes and rebuilds the build folder (CSS and JS files), starts up the BrowserSync server, and watches the aforementioned files.
 
-So far the Gulp file is working as intended, and when it runs across an error, it sends an alert (via beepbeep), logs the error in the terminal, and keeps on going (via <code>this.emit('end')</code>). *Side note: why was that so hard to figure out?*
+So far the Gulp file is working as intended, and when it runs across an error, it sends an alert (via beepbeep), logs the error in the terminal, and keeps on going (via ~this.emit('end')~). *Side note: why was that so hard to figure out?*
 
 I've also set up some paths as variables just below the module list in case I decide to restructure the way I organize my files in the future.
 
@@ -102,7 +102,7 @@ Being able to nest media queries and split my CSS off into partials are the two 
 
 1. Use mixins instead of extends. Extends sound great in theory, but in practice they quickly tangle source order and mess up inheritance. Plus, they don't play nice with media queries. And there's also the fact that [mixins are better for performance](http://csswizardry.com/2016/02/mixins-better-for-performance/).
 2. Contain all mixins and variables within their own dedicated partials. They're just easier to find that way.
-3. Agnostic names are better. For example, <code>@mixin</code> body-font instead of <code>@mixin</code> lato. <code>$brand-color</code> instead of <code>$blue</code>.
+3. Agnostic names are better. For example, ~@mixin~ body-font instead of ~@mixin~ lato. ~$brand-color~ instead of ~$blue~.
 4. Use nesting for media queries, states, and relationships. Avoid it for everything else.
 
 ### SCSS architecture
@@ -125,7 +125,7 @@ The only partials that should go here are variables, mixins, and utility classes
 1. Variables. Colors, font sizes (named after [Greek letters](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-CSS/)), breakpoints (named after t-shirt sizes), assorted measurements, and motion (for now, just the default timing setting for transitions).
 2. Functions. For now, there's just a px to rem conversion function. For days when simple math feels really hard.
 3. Mixins. Typography, layout & positioning, responsive background images, shadows, various components.
-4. Utility classes. Typography, layout, margins, padding, hide content (by breakpoint). All utility classes are namespaced with <code>u-</code>. [Lots of !important, which is a good thing](http://csswizardry.com/2016/05/the-importance-of-important/) in this context. Some classes include the $m (medium) breakpoint, and a limited few utilize mixins.
+4. Utility classes. Typography, layout, margins, padding, hide content (by breakpoint). All utility classes are namespaced with ~u-~. [Lots of !important, which is a good thing](http://csswizardry.com/2016/05/the-importance-of-important/) in this context. Some classes include the $m (medium) breakpoint, and a limited few utilize mixins.
 
 #### Vendor
 
@@ -135,27 +135,27 @@ For the purposes of keeping this framework lean, the only thing here is my own l
 
 I wanted to build the type of grid that makes sense as a developer (by padding all the things), but the designer in me wanted the edges nested objects to line up with the parent container, so I use negative margins for that.
 
-It scales up the <code>html font-size</code> from 100% (16px) to 112.5% (18px) to 125% (20px) depending on viewport width, which scales the entire site if it's built with REM units.
+It scales up the ~html font-size~ from 100% (16px) to 112.5% (18px) to 125% (20px) depending on viewport width, which scales the entire site if it's built with REM units.
 
-All classes are namespaced with <code>g-</code> (for grid):
-- <code>.g-container</code> sets a max width and horizontally centers itself
-- <code>.g-columns</code> applies a clearfix and is mostly required for nesting, context, and grid modifications (more on that below)
-- <code>.g-col</code> applies padding, removes top margin, and sets the default and max width to 100%.
-- <code>.g-[1-12]</code> sets the corresponding column span width on larger viewports
+All classes are namespaced with ~g-~ (for grid):
+- ~.g-container~ sets a max width and horizontally centers itself
+- ~.g-columns~ applies a clearfix and is mostly required for nesting, context, and grid modifications (more on that below)
+- ~.g-col~ applies padding, removes top margin, and sets the default and max width to 100%.
+- ~.g-[1-12]~ sets the corresponding column span width on larger viewports
 
-Also, there are a few modifying classes that can be added to the <code>.g-columns</code> container in order to affect its children:
-- <code>.g-doubling</code> doubles the <code>.g-col</code> span width at intermediate viewport sizes
-- <code>.g-constant</code> maintains the specified .g-col span across all viewports
-- <code>.g-compact</code> reduces <code>.g-col</code> gutter size (and compensates for nested <code>.g-column</code> with negative margin)
-- <code>.g-gutterless</code> removes gutters from its children
+Also, there are a few modifying classes that can be added to the ~.g-columns~ container in order to affect its children:
+- ~.g-doubling~ doubles the ~.g-col~ span width at intermediate viewport sizes
+- ~.g-constant~ maintains the specified .g-col span across all viewports
+- ~.g-compact~ reduces ~.g-col~ gutter size (and compensates for nested ~.g-column~ with negative margin)
+- ~.g-gutterless~ removes gutters from its children
 
 #### Base
 
 Global style for elements, easily overwritten.
 
 1. Reset. Some stuff I found myself using across the board, such as a good ol' nuclear margin and padding reset, box-sizing: border-box and position: relative by default, max-width for images and such, form field resets, and some cherry picked stuff from normalize.CSS.
-2. Typography. Default fonts, font-sizes, and font-weights, and line-heights. A .heading class that makes h1-6 style easily reusable. Classes that correspond to the font-size variables (with breakpoints that scale the really large ones down). Rules for when to honor <code>br</code> tags.
-3. Theme. Default color, background-color, border-color, etc. A dark color scheme can be set on a parent to affect all children using the namespaced class <code>.dark-theme</code>.
+2. Typography. Default fonts, font-sizes, and font-weights, and line-heights. A .heading class that makes h1-6 style easily reusable. Classes that correspond to the font-size variables (with breakpoints that scale the really large ones down). Rules for when to honor ~br~ tags.
+3. Theme. Default color, background-color, border-color, etc. A dark color scheme can be set on a parent to affect all children using the namespaced class ~.dark-theme~.
 4. Lists. Unordered, ordered, and definition lists.
 5. Tables. Table, rows headers, and columns.
 6. Forms. Inputs, textareas, labels, buttons.
@@ -216,9 +216,9 @@ What I'm getting at is, I try to adopt principles that make sense and that don't
 
 I've mostly gone over these while explaining my SCSS partial organization, but here they are for reference:
 
-- <code>.u-</code> is for utility classes. These classes make it easier to design in the browser and prevent me from writing the same rules over and over. Often they are enforced with !important and sometimes they contain media queries or mixins.
-- <code>.g-</code> is for jf-grid classes.
-- <code>.is-</code> is for states, like <code>.is-active</code>. Used in conjunction with attributes when possible.
+- ~.u-~ is for utility classes. These classes make it easier to design in the browser and prevent me from writing the same rules over and over. Often they are enforced with !important and sometimes they contain media queries or mixins.
+- ~.g-~ is for jf-grid classes.
+- ~.is-~ is for states, like ~.is-active~. Used in conjunction with attributes when possible.
 
 ### Component classes
 
@@ -226,39 +226,39 @@ I go for readability over cuteness and rigidity when marking up components and c
 
 Here's an example of a list of links:
 
-<code>.nav-list (ul.nav-list)</code>
+~.nav-list (ul.nav-list)~
 
-<code>.nav-item (li.nav-item)</code>
+~.nav-item (li.nav-item)~
 
-<code>.nav-link (a.nav-link)</code>
+~.nav-link (a.nav-link)~
 
 Here's a more complicated example:
 
-<code>.card-container (div.card-container)</code>
+~.card-container (div.card-container)~
 
-<code>.card-thumb (a.card-thumb)</code>
+~.card-thumb (a.card-thumb)~
 
-<code>.card-img (img.card-img)</code>
+~.card-img (img.card-img)~
 
-<code>.card-caption (div.card-caption)</code>
+~.card-caption (div.card-caption)~
 
-<code>.card-title (a.card-title)</code>
+~.card-title (a.card-title)~
 
-<code>.card-meta (p.card-meta)</code>
+~.card-meta (p.card-meta)~
 
 Finally, when modifying classes, I will add a modifier namespace (namespace namespace?) to the class. I'll also leave the unmodified classes there too. This leads to some clunky html and inevitable style overrides, but it's easy to understand the structure. For example:
 
-<code>.video-card-container (div.card-container)</code>
+~.video-card-container (div.card-container)~
 
-<code>.video-card-thumb (a.card-thumb)</code>
+~.video-card-thumb (a.card-thumb)~
 
-<code>.video-card-img (img.card-img)</code>
+~.video-card-img (img.card-img)~
 
-<code>.video-card-caption (div.card-caption)</code>
+~.video-card-caption (div.card-caption)~
 
-<code>.video-card-title (a.card-title)</code>
+~.video-card-title (a.card-title)~
 
-<code>.video-card-meta (p.card-meta)</code>
+~.video-card-meta (p.card-meta)~
 
 
 
@@ -285,10 +285,10 @@ I assume you're probably here to see how I think, but here are some instructions
 1. Install NPM and Gulp globally (if necessary).
 2. Install MAMP (or your localhost server maker of choice). Open it and start servers.
 3. Fork [this repo](https://github.com/JamesFerrell/jf-kirby-framework).
-4. Clone the repo and initialize submodules with one command: <code>git clone --recursive -j8 https://your-cloned-repo-url</code>
-5. Open up gulpfile.js. On line 19, redefine  <code>var proxyUrl</code> to match the name of your repo. <em>(Or, reconfigure the <code>browser-sync</code> task however you like)<em>
-6. <code>cd</code> into the newly cloned folder and use <code>npm install</code> to install all of the Gulp dependencies.
-7. Run <code>Gulp</code>.
+4. Clone the repo and initialize submodules with one command: ~git clone --recursive -j8 https://your-cloned-repo-url~
+5. Open up gulpfile.js. On line 19, redefine  ~var proxyUrl~ to match the name of your repo. <em>(Or, reconfigure the ~browser-sync~ task however you like)<em>
+6. ~cd~ into the newly cloned folder and use ~npm install~ to install all of the Gulp dependencies.
+7. Run ~Gulp~.
 
 
 
