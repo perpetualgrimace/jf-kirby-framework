@@ -27,10 +27,9 @@ The {{client-name}} site was built with Kirby CMS, Sass, Gulp, and minimal Javas
 
 1. Install NPM and Gulp globally (if necessary).
 2. Install MAMP (or your localhost server maker of choice). Open it and start servers.
-3. Fork [this repo](https://bitbucket.org/JamesFerrell/{{client-url}}).
-4. Clone the repo and initialize submodules with one command: <code>git clone --recursive -j8 https://JamesFerrell@bitbucket.org/JamesFerrell/{{client-url}}.git</code>
-5. <code>cd {{client-url}}</code> into the newly cloned folder and use <code>npm install</code> to install all of the Gulp dependencies.
-6. Run <code>Gulp</code>.
+3. Clone the repo and initialize submodules with one command: <code>git clone --recursive -j8 https://JamesFerrell@bitbucket.org/JamesFerrell/{{client-url}}.git</code>
+4. <code>cd {{client-url}}</code> into the newly cloned folder and use <code>npm install</code> to install all of the Gulp dependencies.
+5. Run <code>Gulp</code>.
 
 
 
