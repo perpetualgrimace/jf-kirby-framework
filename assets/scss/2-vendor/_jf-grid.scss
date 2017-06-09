@@ -32,7 +32,7 @@ html {
 
 // container
 .g-container {
-  width: 100%;
+  width: 100%; // needed when content isn't wide enough
   max-width: $max-width;
   margin: 0 auto;
   padding: $grid-padding;

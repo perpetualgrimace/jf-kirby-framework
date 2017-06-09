@@ -2,7 +2,8 @@
 
   <!-- headline -->
   <div class="g-container">
-    <div class="g-col u-center">
+    <div class="g-columns u-center">
+      <div class="g-col">
       <h1 class="home-headline display giga">
         <?= $page->headline(); ?>
       </h1>

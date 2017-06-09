@@ -20,3 +20,6 @@
 	path = site/plugins/uniform
 	url = https://github.com/mzur/kirby-uniform.git
 	branch = v2
+[submodule "site/plugins/cachebuster"]
+	path = site/plugins/cachebuster
+	url = https://github.com/getkirby-plugins/cachebuster-plugin.git

@@ -3,6 +3,9 @@
 // license
 c::set('license', 'Enter Kirby pro license here');
 
+// cachebuster (https://github.com/getkirby-plugins/cachebuster-plugin)
+c::set('cachebuster', true);
+
 // cache
 c::set('cache', true);
 c::set('cache.ignore', array(
