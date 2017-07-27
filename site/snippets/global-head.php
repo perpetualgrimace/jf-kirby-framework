@@ -21,8 +21,10 @@
   // favicon and touch icons
   snippet('global-head-icons');
 
-  // if on localhost, use the dev stylesheet
-  if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ) {
+  // if on localhost, use dev stylesheet
+  $hostName = gethostname();
+
+  if (strpos($hostName, '.local') !== false) {
     echo css('assets/build/css/main.dev.css');
   } else {
     echo css('assets/build/css/main.production.css');

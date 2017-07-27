@@ -15,11 +15,10 @@ var browserSync     = require('browser-sync');
 var reload          = browserSync.reload;
 
 // Define paths for convenience
-var proxyUrl        = 'localhost:8888/jf-kirby-framework/';
+var proxyUrl        = 'localhost:8888/{{client-name}}/';
 var scssMainPath    = 'assets/scss/*.scss';
 var scssPartialPath = 'assets/scss/**/*.scss';
 var jsPath          = 'assets/js/**/*.js';
-var jsPatternPath   = 'site/patterns/**/*.js';
 var cssBuildPath    = 'assets/build/css';
 var jsBuildPath     = 'assets/build/js';
 
@@ -35,7 +34,7 @@ function handleError(err) {
 // Process js
 gulp.task('scripts', function() {
   return del(jsBuildPath),
-  gulp.src([jsPath, jsPatternPath]).on('error', handleError)
+  gulp.src(jsPath).on('error', handleError)
   // concat files
   .pipe(concat('main.js'))
   // rename
@@ -101,9 +100,9 @@ gulp.task('bs-reload', function () {
 // Watch scss, js and html files
 gulp.task('default', ['dev-styles', 'production-styles', 'scripts', 'browser-sync'], function() {
   // Watch scss, run the styles task on change
-  gulp.watch([scssMainPath, scssPartialPath, 'site/patterns/**/*.scss'], ['dev-styles', 'production-styles']);
+  gulp.watch([scssMainPath, scssPartialPath], ['dev-styles', 'production-styles']);
   // Watch js files, run the scripts task on change
-  gulp.watch([jsPath, jsPatternPath], ['scripts']);
+  gulp.watch(jsPath, ['scripts']);
   // Watch php files, run the bs-reload task on change
   gulp.watch(['site/**/*.php', 'content/**/*.md'], ['bs-reload']).on('error', handleError);
 });
