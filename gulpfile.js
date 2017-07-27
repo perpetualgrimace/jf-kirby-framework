@@ -104,5 +104,5 @@ gulp.task('default', ['dev-styles', 'production-styles', 'scripts', 'browser-syn
   // Watch js files, run the scripts task on change
   gulp.watch(jsPath, ['scripts']);
   // Watch php files, run the bs-reload task on change
-  gulp.watch(['site/**/*.php', 'content/**/*.md'], ['bs-reload']).on('error', handleError);
+  gulp.watch(['site/**/*.php', 'content/**/*.md', cssBuildPath + '/*.css', jsBuildPath + '/*.js'], ['bs-reload']).on('error', handleError);
 });
