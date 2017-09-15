@@ -43,7 +43,7 @@ There are 4 Kirby-related folders in the root directory:
 I came at web development as a visual designer. So I mostly learned to code front-end stuff to the extent that I could make my static comps functional. I'm pretty handy with the HTML and CSS, but definitely still learning when it comes to programming and templating. So with that in mind, here are some rules that for how I the PHP stuff:
 
 - Filenames use dashes. Just dashes. So, stuff like 'global-nav.php'.
-- All php logic should go at the top of the file when possible, including variables. This keeps the template code readable while keeping the logic within reach. So, I try not to use many controller files.
+- All php logic should go at the top of the file when possible, including variables. This keeps the template code readable while keeping the logic within reach. Kirby already calls for a lot of different files with the same name, so I try not to add controller files to the mix.
 - Templates should only contain snippets and logic. All HTML and such should go in snippet files.
 - Minor changes to snippet code should be handled by passing variables from the template where possible.
 - Blueprints can get time consuming, but it's worth it for people that will use the site in the future.
@@ -286,7 +286,7 @@ I assume you're probably here to see how I think, but here are some instructions
 2. Install MAMP (or your localhost server maker of choice). Open it and start servers.
 3. Fork [this repo](https://github.com/JamesFerrell/jf-kirby-framework).
 4. Clone the repo and initialize submodules with one command: `git clone --recursive -j8 https://your-cloned-repo-url`
-5. Open up gulpfile.js. On line 19, redefine  `var proxyUrl` to match the name of your repo. <em>(Or, reconfigure the `browser-sync` task however you like)<em>
+5. Open up gulpfile.js. On line 19, redefine  `var proxyUrl` to match the name of your repo. *(Or, reconfigure the `browser-sync` task however you like)*
 6. `cd` into the newly cloned folder and use `npm install` to install all of the Gulp dependencies.
 7. Run `Gulp`.
 
@@ -296,4 +296,4 @@ I assume you're probably here to see how I think, but here are some instructions
 
 In the process of formalizing the my approach to organization and naming, I noticed some inconsistencies and (mostly) fixed them. I think this was a worthwhile project and I'm glad I did it.
 
-If you're still here, tweet at me and tell me how you would make it better! [@jamesferrelldd](http://twitter.com/jamesferrelldd)
+If you're still here, tweet at me and tell me how you would make it better! [@perpetualgrimac](http://twitter.com/perpetualgrimac)
