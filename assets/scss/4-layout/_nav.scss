@@ -251,13 +251,13 @@
   // initial state
   &-bun {
     display: block;
-    width: ($border-width * 9);
-    height: $border-width;
+    width: 18px;
+    height: 2px;
     border-radius: 1px;
     background: $black;
 
     & + & {
-      margin-top: ($border-width * 1.5);
+      margin-top: 3px;
     }
   }
 
@@ -266,13 +266,13 @@
     transform: translateX(5px);
 
     .hamburger-bun-top {
-      transform: rotateZ(45deg) translateY(#{$border-width * 3.5});
+      transform: rotateZ(45deg) translateY(7px);
     }
     .hamburger-bun-patty {
       opacity: 0;
     }
     .hamburger-bun-bottom {
-      transform: rotateZ(-45deg) translateY(-#{$border-width * 3.5});
+      transform: rotateZ(-45deg) translateY(-7px);
     }
   }
 }
