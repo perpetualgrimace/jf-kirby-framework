@@ -11,7 +11,7 @@ $success-color:   green;
 $warning-color:   yellow;
 $error-color:     red;
 
-// whites and blacks
+// neutrals
 $black:   #000000;
 $dark-2:  #2A2A2A;
 $dark-1:  #555555;
@@ -37,13 +37,13 @@ $instagram-color: #e4405f;
 // font sizes
 ////////////////////////////////
 
-$giga:    5.0rem; // 100px
-$alpha:   3.4rem; // 68px
-$beta:    2.2rem; // 44px
-$gamma:   1.5rem; // 30px
-$delta:   1.0rem; // 20px
-$epsilon: 0.85rem; // use sparingly!
-$milli:   0.7rem; // 14px
+$giga:    rem(100);
+$alpha:   rem(68);
+$beta:    rem(44);
+$gamma:   rem(30);
+$delta:   rem(20); // 1rem
+$epsilon: rem(17); // use sparingly!
+$milli:   rem(14);
 
 
 ////////////////////////////////
@@ -77,11 +77,11 @@ $gutter: 1rem;
 $max-container-width: 60rem;
 
 // used by _nav.scss
-$nav-height: 2.45rem; // 49px
+$nav-height: rem(49);
 
 // used by _cards.scss
-$thumb-width: 8rem;
-$thumb-height: 6rem;
+$thumb-width:  rem(160);
+$thumb-height: rem(120);
 
 
 ////////////////////////////////
