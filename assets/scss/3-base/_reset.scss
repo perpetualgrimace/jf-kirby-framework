@@ -2,23 +2,23 @@
 // custom reset
 ////////////////////////////////
 
-// Margin + padding
+// reset margin & padding
 * {
   margin: 0;
   padding: 0;
 }
 
-// Make it responsive
+// usually necessary for responsive layouts
 img, textarea, svg {
   max-width: 100%;
 }
 
-// Enable svg overflow
+// prevent viewbox from cropping out parts of the SVG
 svg {
   overflow: visible;
 }
 
-// Border box default, courtesy of Paul Irish.
+// border box default, courtesy of Paul Irish.
 // http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 html {
   box-sizing: border-box;
@@ -27,18 +27,21 @@ html {
   box-sizing: inherit;
 }
 
-// Pos:rel all the things
+// position:relative by default, enables the following:
+// - top/right/bottom/left adjustments,
+// - z-index adjustements,
+// - contained position:absolute behavior for children
 body * {
   position: relative;
 }
 
-// Hide horizontal scroll bars. Just in case.
+// prevent horizontal overflow and scroll bars on the page
 html, body {
   overflow-x: hidden;
   width: 100%;
 }
 
-// Forms are stupid
+// nice defaults for form fields
 label {
   display: inline-block;
 }
@@ -48,7 +51,7 @@ input, textarea {
 }
 input[type=checkbox],
 input[type=radio]{
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 input[type=submit],
 input[type=radio],
@@ -58,12 +61,12 @@ label {
   cursor: pointer;
 }
 
-// Let users resize textareas
+// allow users resize textareas vertically (set max-height if necessary)
 textarea {
   resize: vertical;
 }
 
-// Reset buttons
+// reset button appearance
 button {
   overflow: visible;
   cursor: pointer;
@@ -72,7 +75,6 @@ button {
   -webkit-appearance: button;
   display: block;
   outline: none;
-  -webkit-box-shadow: none;
   box-shadow: none;
 
   &::-moz-focus-inner {
@@ -80,17 +82,17 @@ button {
   }
 }
 
-// Reset list-style
+// reset lists
 ul, ol {
   list-style: none;
 }
 
-// Add IE support for hidden attribute
+// add IE support for hidden attribute
 [hidden] {
   display: none;
 }
 
-// Disabled elements
+// reset cursor on disabled elements
 [disabled] {
   cursor: default;
 }
@@ -99,20 +101,19 @@ ul, ol {
 // Cherry picked from normalize
 ////////////////////////////////
 
-// Prevent iOS text size adjust after orientation change,
+// prevent iOS text size adjust after orientation change,
 // without disabling user zoom.
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
-// Display: block defaults
-article, aside, details, figcaption, figure, img, // img added by me
-footer, header, hgroup, main, menu, nav, section, summary {
+// display: block defaults (img added by me )
+article, aside, details, figcaption, figure, img, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
-// Sub + superscript
+// sub / superscript sizing & positioning
 sub,
 sup {
   font-size: 75%;
@@ -126,15 +127,15 @@ sub {
   bottom: -0.25em;
 }
 
-// Remove linked image border
+// remove image border
 img {
   border: 0;
 }
 
-// More form fixes
+// make fields inherit font and color by default
 button, input, optgroup, select, textarea {
-  color: inherit; /* 1 */
-  font: inherit; /* 2 */
+  color: inherit;
+  font: inherit;
 }
 
 // IE overflow bug
@@ -142,7 +143,7 @@ button {
   overflow: visible;
 }
 
-// Address inconsistent text-transform inheritance
+// address inconsistent text-transform inheritance
 button, select {
   text-transform: none;
 }
@@ -156,7 +157,7 @@ input {
   line-height: normal;
 }
 
-// Safari + chrome fixes
+// Safari & chrome fixes
 input[type="search"] {
   -webkit-appearance: textfield;
 }
@@ -165,7 +166,7 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-// Fieldset
+// reset fieldset border
 fieldset {
   border: none;
 }
@@ -175,7 +176,7 @@ textarea {
   overflow: auto;
 }
 
-// Tables
+// table defaults
 table {
   border-collapse: collapse;
   border-spacing: 0;
