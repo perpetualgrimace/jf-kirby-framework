@@ -7,9 +7,6 @@
 [submodule "site/fields/markdown"]
 	path = site/fields/markdown
 	url = https://github.com/JonasDoebertin/kirby-visual-markdown.git
-[submodule "site/plugins/minifyhtml"]
-	path = site/plugins/minifyhtml
-	url = https://github.com/ian-cox/Kirby-MinifyHTML.git
 [submodule "site/plugins/relatedpages"]
 	path = site/plugins/relatedpages
 	url = https://github.com/Adspectus/RelatedPages.git
